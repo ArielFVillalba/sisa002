@@ -1,0 +1,67 @@
+.Table_form_promo{
+float:left;
+width: 950px;
+height: 100%;
+}
+.Title_form_promo{
+float:left;
+width:900px;
+height:30px;
+background-color:#85C1E9;
+font: 18px Arial,  sans-serif ,bold;
+text-decoration:none;
+text-align: center;
+justify-content: center;
+border: 1px solid #000000;
+background-color:orange;
+}
+.Title_dato_promo{
+float:left;
+width:900px;
+height:30px;
+padding-top:8px;
+background-color:#D5DBDB ;
+border: 1px solid #000000;
+font: 12px Arial,  sans-serif ,bold;
+}
+.Heading{
+display: table-row;
+font-weight: bold;
+text-align: center;
+border: 1px solid #000000;
+}
+.Row_form_promo{
+/*display: table-row;*/
+}
+.datos_form_promo,.Title_dato_promo{
+float:left;
+width:900px;
+height:30px;
+padding-top:8px;
+background-color:#D5DBDB ;
+border: 1px solid #000000;
+font: 12px Arial,  sans-serif ,bold;
+}
+.Title_dato_promo{
+background-color:#00CED1 ;
+text-align: center;
+justify-content: center;
+}
+.fecha_form_promo{
+float:left;
+width:900px;
+height:30px;
+padding-top:8px;
+background-color:#D5DBDB ;
+border: 1px solid #000000;
+font: 12px Arial,  sans-serif ,bold;
+}
+.btn_form_promo{
+float:left;
+width:900px;
+height:30px;
+background-color:#E3BB84  ;
+border: 1px solid #000000;
+}
+
+ 

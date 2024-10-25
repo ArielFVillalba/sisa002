@@ -1,0 +1,77 @@
+/* 
+* CSS Document 
+* Author: Yolanda Zelaya
+* Copyright (C) 2011
+*/
+
+
+
+
+#principal {
+background-image:url(../images/graf.gif);
+	display: inline-block;
+	width: 1000;
+	float: left;
+	height:900;
+	overflow: hidden;
+	margin-top:0px;
+ 	border: 1px solid #000000;
+	
+}
+#contenerline1 {
+background-image:url(../images/graf.gif);
+	display: inline-block;
+	width: 60%;
+	float: left;
+	height:10%;
+	overflow: hidden;
+	margin-top:0px;
+ 	border: 1px solid #000000;
+	
+}
+
+/*SLIDER BANNERS*/
+.graphic, #prevBtn, #nextBtn, #slider1prev, #slider1next{
+	margin:0;
+    padding:0;
+    display:block;
+    overflow:hidden;
+    text-indent:-8000px;
+	border: 1px solid #000000;
+}
+	
+#container{	
+	margin:0 auto;
+	position:relative;
+	text-align:left;
+	width:300px;
+	background:#fff;		
+	margin-bottom:2em;
+	float:left;
+    border: 1px solid #000000;
+}	
+
+#content{
+	position:relative;
+	margin-right: 50px;
+	margin-top:10px;
+	border: 1px solid #000000;
+}			
+
+#slider23 {
+	margin:0;
+	padding:0;
+	list-style:none;
+	border: 1px solid #000000;
+	width:200px;
+	height:100px;
+	overflow:hidden; 
+	border: 1px solid #000000;
+}
+
+
+
+
+
+
+

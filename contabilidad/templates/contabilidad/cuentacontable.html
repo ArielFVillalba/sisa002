@@ -1,0 +1,98 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/contabilidad/contabilidad/ctacontable.css' %}">
+<script src="{% static '/contabilidad/contabilidad/ctacontable.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos()">
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucontabilidad' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+	    <div id="columna0"  class="columna0" >
+		<form id="formctacontable" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >cuenta:</label>   </div>
+		<div  class="campo2" > <input  {% if not var2 %}disabled{% endif %}
+		type="text"  class="txtlargo" id="id_cuenta" name="cuenta" value="{{ ctacontable.cuenta }}"> <br> </div>
+		<div  class="campo1" > 	<label >denominacion:</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %}
+		type="text"  class="txtlargo"  id="id_denominacion" name="denominacion" value="{{ ctacontable.denominacion }}"><br> </div>
+		<div  class="campo1" > <label >nivel:</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %}
+		type="text" class="txtcorto" id="id_nivel" name="nivel"  list="nivel_list" value="{{ ctacontable.nivel }}"><br> </div>
+
+		<div  class="campo1" > <label >naturaleza:</label>   </div>
+		<div  class="campo2" > <input  {% if not var2 %}disabled{% endif %}
+		type="text" class="txtcorto" id="id_naturaleza" name="naturaleza" list="naturaleza_list" value="{{ ctacontable.naturaleza }}"><br> </div>
+		<div  class="campo1" > <label >asentable:</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %}
+		type="text" class="txtcorto" id="id_asentable" name="asentable" list="acentable_list" value="{{ ctacontable.asentable }}"><br> </div>
+		<div  class="campo1" > <label >centro_costo:</label>   </div>
+		<div  class="campo2" > <input  {% if not var2 %}disabled{% endif %}
+		type="text" class="txtcorto" id="id_centro_costo" name="centro_costo" value="{{ ctacontable.centro_costo }}"><br> </div>
+		<div  class="campo1" > <label >moneda:</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %}
+		type="text" class="txtcorto" id="id_moneda" name="moneda" value="{{ ctacontable.moneda }}"><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		</form>
+			<div   class="botones" >
+			{% if not var1 %}
+			<a class="boton" href="#" onclick="document.getElementById('formctacontable').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'ctacontable_cargar' pk_token=pk_token|default:0   %}" >CANCELAR</a>
+			{% endif %}
+			{% if not var2 %}
+			<a class="boton" href="{% url 'ctacontable_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'ctacontable_editar' pk_token=pk_token|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'ctacontable_eliminar' pk_token=pk_token|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'ctacontable_listar' cadena=0   %}" >BUSCAR</a>
+			{% endif %}	</div>
+				<datalist id="nivel_list">
+					<option id="1" value="1">1</option>
+					<option id="2" value="2">2</option>
+					<option id="3" value="3">3</option>
+					<option id="4" value="4">4</option>
+					<option id="5" value="5">5</option>
+					<option id="6" value="6">6</option>
+					<option id="7" value="7">7</option>
+				</datalist>
+				<datalist id="acentable_list">
+					<option id="1" value="SI">SI</option>
+					<option id="2" value="NO">NO</option>
+				</datalist>
+				<datalist id="naturaleza_list">
+					<option id="1" value="DEUDOR">DEUDOR</option>
+					<option id="2" value="ACREEDOR">ACREEDOR</option>
+				</datalist>
+		</div><!-- COLUMNA 0-->
+
+
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+      {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

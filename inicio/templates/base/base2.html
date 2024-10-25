@@ -1,0 +1,25 @@
+{% load static %}
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+<title>{% block title %}SISA{% endblock %}</title>
+<script src="{% static '/js/jquery-3.6.4.js' %}"></script>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static 'inicio/css/principal.css' %}">
+<link rel="shortcut icon" href="{% static '/imagen/imagprincipal/cbasjjhap.png' %}">
+
+</head> <body>
+<div id="principal" class="principal" >
+    <div     id="cabecera"     class="cabecera" >
+        <div id="panellogo"    class="panellogo" >  {% include 'base/logo-ini.html' %} <div>
+    </div>
+    {% block content %}{% endblock %}
+    {% block footer %}
+        {% endblock %}
+
+</body>
+{% block scripts %}
+  {% endblock %}
+
+</html>

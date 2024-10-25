@@ -1,0 +1,105 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html xmlns:color="http://www.w3.org/1999/xhtml">
+
+<head>
+<script src="{% static '/compras/compras/proveedor.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/pagoprovcab.css' %}">
+<script src="{% static '/compras/compras/pagoprovcab.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+
+</head>
+<body onload="actelementos(), cargarcombos(), actcompelem()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menuproveedor' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+
+		<form id="pagoprovcab_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value={{ pagoproveedor.fecha |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >recibo:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  class="txtnrofactura" id="id_recibo" name="recibo" value={{ pagoproveedor.recibo }} > <br> </div>
+		<div  class="oclultar" > <label >idcompracab:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkf"  name="idpkf" value={{ pkf }}><br> </div>
+		<div  class="oclultar" > <label >idproveedor:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_idproveedor"  name="idproveedor" value={{ pagoproveedor.idproveedor }}><br> </div>
+		<div  class="campo1" > 	<label >proveedor:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_proveedor" name="proveedor"  list="porv_list" onchange="codigoprov(this.value)" value={{ pagoproveedor.proveedor }}><br> </div>
+
+		</div>   <!-- COLUMNA 1 -->
+		</div><!-- COLUMNA 0-->
+		</form>
+
+		<div   class="botones" >
+ 			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('pagoprovcab_frm').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'pagoprovcab_cargar' pk_token=pkf|default:0   %}" >CANCELAR</a>
+			{% endif %}
+ 			{% if not hab2 %}
+			<a class="boton" href="{% url 'pagoprovcab_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'pagoprovcab_editar' pk_token=pkf|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'pagoprovcab_eliminar' pk_token=pkf|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'pagoprovcab_filtro' %}" >BUSCAR</a>
+			{% endif %}
+
+		</div>
+
+
+		<div id= "lin0fact +'" class ="cabdetpago" >
+		<div id= "cabdetpagot +'" class ="cabdetpagot" >
+        <label id="lin0fact0" style= " color: black;  font-size: 18px;  line-height: 1; font-weight: bold;"
+      	 > CUOTAS PAGADAS  </label>
+		</div>
+		<div id= "cabdetpagob +'" class ="cabdetpagob" >
+			<a class="boton" href="{% url 'pagoprovafact_listar' pk_token=pkf|default:0 %}" style= "width:200;   font-size: 16px;" >CARGAR FACTURAS</a>
+    	 </div>
+    	 </div>
+
+		 <div id="listpagofact" class="listadodet"> <div id="pagoprovfact-list"></div>	</div>
+
+
+		 <div id= "lin00'+ lin +'" class ="cabdetpago" >
+		 <div id= "cabdetpagot2 +'" class ="cabdetpagot" >
+
+         <label id="jjje" style= " color: black;  font-size: 18px;  line-height: 1; font-weight: bold;"
+      	 > FORMA PAGADAS </label>
+     	 </div>
+		 <div id= "cabdetpagob2 +'" class ="cabdetpagob" >
+			<a class="boton"  onclick="limpiardetp(1);" style= "width:200;   font-size: 16px;" >CARGAR / PAGO</a>
+    	 </div>
+    	 </div>
+
+		<div id="pagoprovfpago" class="listadodet"> <div id="pagoprovfpago-list"></div>	</div>
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

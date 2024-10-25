@@ -1,0 +1,70 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static '/caja/caja/cajaformadepago.css' %}">
+<script src="{% static '/caja/caja/cajaformadepago.js' %}"></script>
+</head>
+
+<body onload="actelementos(),busdetallefp()">
+	<div id="depositoscab"  class="depositoscab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucaja' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab1"  class="titcab" >  {{ title }}  </div>
+
+    </div>
+
+{% csrf_token %}
+    <div class ="columna0" >
+    <div class ="columna1" >
+    <div class ="campot" >FORMA DE PAGO </div>
+    </div>
+    <div class ="columna1" >
+    <div class ="campo1" ><input type="text"  id="id_formadepago"   > </div>
+    </div>
+
+    <div class ="columna1" >
+    <div class ="campo2" >
+    <button class="boton" onClick="nuevo()">nuevo</button>
+    <button class="boton" onClick="actualizar_cajaformapago()">actualizar</button>
+    <button class="boton" onClick="eliminar_cajaformapago()">eliminar</button> </div>
+
+    </div>
+    </div>
+
+    <div class ="columna1" >
+    <div class ="campot" >FORMA DE PAGO </div>
+    </div>
+     		<div id="listadodet" class="listadodet">
+			<div id="cajaformapago-list">
+
+			</div>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+      {% endfor %}
+    {% endif %}
+</script>
+
+{% endblock %}

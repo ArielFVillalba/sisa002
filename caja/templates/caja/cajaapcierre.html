@@ -1,0 +1,84 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+
+
+
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static '/caja/caja/cajaaperturacierre.css' %}">
+<script src="{% static '/caja/caja/cajaaperturacierre.js' %}"></script>
+<script src="{% static '/caja/caja/cajatipomov.js' %}"></script>
+
+</head>
+
+<body onload="actelementos(), funcompcab()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucaja' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab1"  class="titcab" >  {{ title }}  </div>
+
+    </div>
+
+		<form id="venta_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" >
+		</div>
+		<div  class="campo2" style="text-align: right;"  >
+		<a class="btn" href="{% url 'cajaapcierre_cerrar' pk_token=pk_token|default:0   %}">EJECUTAR CIERRE </a>
+
+		</div>
+		<div  class="campo1" ></div>
+		<div  class="campo2" ></div>
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value={{ cjap.fecha |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >apertura:</label> </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  class="txtnrofactura" id="id_apertura" name="apertura" value='{{ cjap.apertura }}' > <br> </div>
+		<div  class="campo1" > <label >total factura:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_totalfactura" name="totalfactura" value='{{ totalfactura }}'><br> </div>
+		<div  class="oclultar" > <label >idventacab :</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkf"  name="pkf" value={{ pkf }}><br> </div><div  class="campo1" > <label >factura inicio:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_facturaini" name="facturaini" value='{{ cjap.facturaini }}'><br> </div>
+		<div  class="campo1" > <label >factura fin:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_facturafin" name="facturafin" value='{{ facturafin }}'><br> </div>
+
+		</div>   <!-- COLUMNA 1 -->
+
+
+		</div>   <!-- COLUMNA 0 -->
+		</form>
+
+
+		<div id="listadodet" class="listadodet">
+			<div id="cajacierre-list">
+			</div>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+      {% endfor %}
+    {% endif %}
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/movdep.css' %}">
+<script src="{% static '/stock/stock/movdep.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun(),cargarcombos()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+	<a class="btn" href="{% url 'movdepcab_crear' %}" >RETORNAR</a>
+	</div>
+	<div  id="titcab"  class="titcab" > FILTRAR MOV DEPOSITO </div>
+    </div>
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha inicio:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechaini" name="fechaini" ><br> </div>
+        <div  class="campo1" > <label >fecha fin:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechafin" name="fechain" ><br> </div>
+		<div  class="campo1" > <label >nro mov:</label>   </div>
+		<div  class="campo2" > <input type="text" class="txtfecha" id="id_nromov" name="nromov" ><br> </div>
+
+		</div>   <!-- COLUMNA 1 -->
+		</div>   <!-- COLUMNA 0-->
+		</form>
+
+		<div   class="botones" >
+			<a class="boton" href="#" onclick="filtrarmovdep()">LISTAR</a>
+		</div>
+
+
+
+</body>
+</html>
+{% endblock %}

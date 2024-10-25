@@ -1,0 +1,73 @@
+{% extends "base/base2.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/inventario.css' %}">
+<script src="{% static '/stock/stock/inventario.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="inventariocab"  class="inventariocab" >
+		<div  id="inventariobtncab"  class="inventariobtncab" >
+
+		</div>
+		<div  id="inventariotitcab"  >
+			<h1 class="inventariotitcab"  id="titleElement">{{ title }}</h1>
+		</div>
+    </div>
+		<form id="forminventarioemp" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label for="lblflia1">toma:</label>   </div>
+		<div  class="campo2" > <input  type="text" id="id_nrotoma" name="nrotoma"  class="nrotoma" ><br> </div>
+		<div  class="campo1" > <label for="lblflia1">EMPRESA:</label>   </div>
+	    <div  class="campo2" > <input type="text" id="id_empresa" name="empresa"  value ="{{ sempresa }}"  autocomplete="off" list="empresa_list" onchange="selecempresa()" value="{{ dnempresa }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia2">SUCURSAL:</label>   </div>
+		<div  class="campo2" > <input  type="text" id="id_sucursal" name="sucursal" value ="{{ ssucursal }}"  autocomplete="off" list="sucursal_list"   value="{{ dnsucursal }}"><br> </div>
+    	<div  class="campo1" ></div> <div  class="campo2" ></div>
+		<div  class="botones" >
+		<a  class="boton" href="#" onclick="ingresacargarcod()">INGRESAR</a>
+		<a  class="boton" href="{% url 'inv_toma_login'%}" >CANCELAR</a>
+		</div>
+
+		</div><!-- COLUMNA 1-->
+		</div><!-- COLUMNA 0-->
+
+<datalist id="empresa_list">
+        {% for opcion in empresas %}
+            <option id="{{ opcion.idempresa }}" value="{{ opcion.empresa }}" </option>
+        {% endfor %}
+ </datalist>
+
+ <datalist id="sucursal_list">
+        {% for opcion in sucursales %}
+            <option id ="{{ opcion.idsucural }}" value="{{ opcion.sucursal }}"></option>
+        {% endfor %}
+ </datalist>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

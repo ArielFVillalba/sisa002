@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/compras/compras/menucompras.css' %}">
+<script src="{% static '/compras/compras/menucompras.js' %}"></script>
+</head>
+<body onload="actelementos()">
+
+ <div class="contenedor-menu-cat">
+ <ul class="menu-cat">
+
+ <li><a class ="atexttit" href="#"onclick="seleccab();">VENTA</a>
+  <ul class="menu-cat">
+ <li><a href="{% url 'presupuestoventacab_cargar' pk_token=0 %}" >PRESUPUESTO </a> </li>
+
+ <!--<li><a href="{% url 'pedidoventacab_cargar' pk_token=0 %}" >pedido </a> </li>
+ <li><a href="{% url 'ordenventacab_cargar' pk_token=0 %}" >orden </a> </li>-->
+ <li><a href="{% url 'ventacab_cargar' pk_token=0 %}" >VENTAS </a> </li>
+ <li><a href="{% url 'notacreditoventacab_cargar' pk_token=0 %}" >NOTA DE CREDITO </a> </li>
+ <!--<li><a href="{% url 'notadebitoventacab_cargar' pk_token=0 %}" >Nota Debito </a> </li>-->
+ </ul> </li>
+
+ <li><a class ="atexttit"  href="#"onclick="seleccab();">INFORMES</a> <ul class="menu-cat">
+ <li><a href="{% url 'presupdeventacab_inf' %}" > INFORME DE PRESUPUESTOS </a> </li>
+  <li><a href="{% url 'ventacabinf' %}" > INFORME DE VENTA</a> </li>
+ <li><a href="{% url 'notacreditodeventacab_inf' %}" > INFORME NOTA DE CREDITO </a> </li>
+ <!--
+  <li><a href="{% url 'ordendeventacab_inf' %}" > informe orden de venta</a> </li>
+ <li><a href="{% url 'pedidodeventacab_inf' %}" > informe pedido de venta</a> </li>
+
+ <li><a href="{% url 'notadebitodeventacab_inf' %}" > informe nota debito de venta</a> </li>-->
+ </ul></li>
+
+ </ul> </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+<head>
+
+
+<script src="{% static '/js/jsPDF-AutoTable-master/libs/libs/jspdf.umd.js' %}"></script>
+<script src="{% static '/js/jsPDF-AutoTable-master/dist/jspdf.plugin.autotable.js' %}"></script>
+
+
+<link rel="stylesheet" href="{% static '/DataTables/DataTables-1.13.4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/DataTables-1.13.4/css/dataTables.bootstrap.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/dataTables.min.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/Responsive-2.4.1/css/responsive.dataTables.min.css' %}">
+
+<link rel="stylesheet" href="{% static '/stock/informes/inventarioinf.css' %}">
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static '/stock/informes/inventarioinf.js' %}"></script>
+
+
+</head>
+<body onload="procesar()" >
+
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+		<a class="btn"  id="retorno" href="{% url 'views_inventario_lst' %}" ><</a>
+		</div>
+		<div  id="titcab"  class="titcab" > INVENTARIO RESUMIDO </div>
+    </div>
+
+
+		<div id="contlistado"  class="contlistado" >
+
+        {% for elemento in datos %}
+		<div id="grplst0"  class="grplst0" >
+		{% if forloop.counter|divisibleby:2 %}
+        <div id="grplst0" class="grplst0 estilo-par">
+    	{% else %}
+        <div id="grplst0" class="grplst0 estilo-impar">
+    	{% endif %}
+
+		<div id="grplst1"  class="grplst1" >
+		<div  class="lstcampo1" >  Nro toma :  </div>
+		<div  class="lstcampo2" >  {{ elemento.nromov }}  </div>
+		<div  class="lstcampo1" >  fecha :  </div>
+		<div  class="lstcampo2" >  {{ elemento.fecha }}  </div>
+		<div  class="lstcampo1" >  fecha ajuste :  </div>
+		<div  class="lstcampo2" >  {{ elemento.fechaajuste }}  </div>
+		<div  class="lstcampo1" >  deposito :  </div>
+		<div  class="lstcampo2" >  {{ elemento.deposito }}  </div>
+		</div> <!--grplst1-->
+		<div id="grplst2"  class="grplst2" >
+		<div  class="lstcampo1" >  tipo unidad :  </div>
+		<div  class="lstcampo2" >  {{ elemento.unidad }}  </div>
+
+		<div  class="lstcampo1" >  cant. fisica :  </div>
+		<div  class="lstcampo2" >  {{ elemento.cantidadfisica }}  </div>
+		<div  class="lstcampo1" >  cant. logica :  </div>
+		<div  class="lstcampo2" >  {{ elemento.cantidadlogica }}  </div>
+		<div  class="lstcampo1" >  diferencia :  </div>
+		<div  class="lstcampo2" >  {{ elemento.difcantidad }}  </div>
+		</div> <!--grplst1-->
+		<div id="grplst3"  class="grplst3" >
+		<div  class="lstcampo1" >   </div>
+		<div  class="lstcampo2" >   </div>
+
+		<div  class="lstcampo1" >  costo. fisico :  </div>
+		<div  class="lstcampo2" >  {{ elemento.costofisico }}  </div>
+		<div  class="lstcampo1" >  costo. logico :  </div>
+		<div  class="lstcampo2" >  {{ elemento.costologico }}  </div>
+		<div  class="lstcampo1" >  diferencia :  </div>
+		<div  class="lstcampo2" >  {{ elemento.difcosto }}  </div>
+
+		</div>  <!--grplst2-->
+		</div>  <!--grplst0-->
+		<div > 	</div>
+
+        {% endfor %}
+		</div>  <!--contlistado -->
+
+
+
+
+</body>
+</html>
+{% endblock %}

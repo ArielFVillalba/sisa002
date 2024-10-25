@@ -1,0 +1,72 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/contabilidad/contabilidad/ctacontable.css' %}">
+<script src="{% static '/contabilidad/contabilidad/ctacontable.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucontabilidad' %}" >RETORNAR</a>
+    </div>
+	<div  id="titcab"  class="titcab" >  LISTADO DE CTA CONTABLE  </div>
+    </div>
+<div>
+<div  class="cab" >
+	<div  class="celdatxtbuscar" > <input type="text" id="idbuscar" name="idbuscar" class="buscar_ctacontable" value="{{ cadena }}"> <br> </div>
+    <div  class="tncab" > <button class="btn" onClick="buscarctacontable()" >  BUSCAR  </button> </div>
+ </div>
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistadolt" >CUENTA </div>
+    <div class ="celdalistadoltl" >DENOMINACIOM</div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadolt" >naturaleza </div>
+    <div class ="celdalistadolt" >nivel </div>
+    <div class ="celdalistadolt" >asentable</div>
+    <div class ="celdalistadolt" >centro_costo</div>
+    </div>
+    </div>
+
+{% for ctacontable in ctacontable %}
+
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistado" > {{ ctacontable.cuenta }}</div>
+    <div class ="celdalistadol" > {{ ctacontable.denominacion }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ ctacontable.naturaleza }}</div>
+    <div class ="celdalistado" > {{ ctacontable.nivel }}</div>
+    <div class ="celdalistado" > {{ ctacontable.asentable }}</div>
+    <div class ="celdalistado" > {{ ctacontable.centro_costo }}</div>
+    <div class ="celdalistado" >
+        <a href="{% url 'ctacontable_cargar' pk_token=ctacontable.pkctacont|default:0  %}">
+        <button class="btnlstm">editar</button>
+        </a>
+        </div>
+   </div>
+   </div>
+       			<div class="espacio011" ></div>
+
+
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+

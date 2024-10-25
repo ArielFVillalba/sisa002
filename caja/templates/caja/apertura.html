@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+
+
+
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static '/caja/caja/cajaaperturacierre.css' %}">
+<script src="{% static '/caja/caja/cajaaperturacierre.js' %}"></script>
+<script src="{% static '/caja/caja/cajatipomov.js' %}"></script>
+
+</head>
+
+<body onload="actelementos(), funcompcab()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucaja' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab1"  class="titcab" >  {{ title }}  </div>
+
+    </div>
+
+		<form id="apertura_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+
+		<div  class="campo2" >MONTO</div>
+		<div  class="campo2" > <input type="text"  class="txtapertura" id="id_apertura" name="apertura"  > <br> </div>
+    	<div  class="campo1" ></div>  <div  class="campo2" ></div><div  class="campo1" ></div>
+		<div  class="campo1" ></div>
+		<div  class="campo2" >
+			<a  class="boton" href="#" onclick="document.getElementById('apertura_frm').submit();">GUARDAR</a>
+
+		</div>
+
+		</div>   <!-- COLUMNA 1 -->
+		</div>   <!-- COLUMNA 0 -->
+		</form>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+      {% endfor %}
+    {% endif %}
+</script>
+
+{% endblock %}

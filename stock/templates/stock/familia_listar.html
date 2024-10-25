@@ -1,0 +1,76 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{% static '/stock/stock/familia.css' %}">
+<script src="{% static '/stock/stock/familia.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+</head>
+<body onload=" procesarfun()">
+
+    <div id="familiacab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'familia_crear' %}" >RETORNAR</a>
+		</div>
+		<div  id="familiatitcab"  >
+			<h1 class="titcab"  id="titleElement">LISTADO DE FAMiLIA </h1>  </div>
+    </div>
+
+<div  class="familiacab" >
+	<div  class="celdatxtbuscar" > <input type="text" id="idbuscar" name="idbuscar" class="buscar_familia" value="{{ cadena }}"> <br> </div>
+    <div  class="familiabtncab" > <button class="btn" onClick="buscarfamilia()" >  BUSCAR  </button> </div>
+ </div>
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistadot" >CODIGO </div>
+    <div class ="celdalistadot" >FAMILIA1</div>
+    <div class ="celdalistadot" >FAMILIA2 </div>
+    </div>
+    <div class="columnalst2">
+    <div class ="celdalistadot" >FAMILIA3 </div>
+    <div class ="celdalistadot" >FAMILIA4 </div>
+    <div class ="celdalistadot" >FAMILIA5 </div>
+    </div>
+    <div class="columnalst3">
+    <div class ="celdalistadot" >FAMILIA6 </div>
+    <div class ="celdalistadot" >FAMILIA7 </div>
+    </div>
+    </div>
+{% for familia in familia %}
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistado" > {{ familia.codigo }}</div>
+    <div class ="celdalistado" > {{ familia.familia1 }}</div>
+    <div class ="celdalistado" > {{ familia.familia2 }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ familia.familia3 }}</div>
+    <div class ="celdalistado" > {{ familia.familia4 }}</div>
+    <div class ="celdalistado" > {{ familia.familia5 }}</div>
+
+   </div>
+   <div class="columnalst3"  >
+        <div class ="celdalistado" > {{ familia.familia6 }}</div>
+        <div class ="celdalistado" > {{ familia.familia7 }}</div>
+
+        <a href="{% url 'familia_cargar' pk_token=familia.pkf %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+   </div>
+
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+

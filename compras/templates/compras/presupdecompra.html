@@ -1,0 +1,107 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+	<script src="{% static '/compras/compras/proveedor.js' %}"></script>
+<script src="{% static '/stock/stock/articulos.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/presupdecompra.css' %}">
+<script src="{% static '/compras/compras/presupdecompra.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos(), cargarcombos(), actcompelem()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucompras' %}" >RETORNAR</a>
+		</div>
+	<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+		<form id="presupuestodecompra_frm" action="{{ sidr }}" method="POST">
+
+        {% csrf_token %}
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input type="date" {% if not hab2 %}disabled{% endif %} class="txtfecha" id="id_fecha" name="fecha" value={{ presupuestocompcab.fecha |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >nroorden:</label>   </div>
+		<div  class="campo2" > <input type="text"  {% if not hab2 %}disabled{% endif %} class="txtnrofactura" id="id_nropresupuesto" name="nropresupuesto" value={{ presupuestocompcab.nropresupuesto }} > <br> </div>
+		<div  class="oclultar" > <label >idcompracab:</label >   </div>
+		<div  class="oclultar" > <input type="text" {% if not hab2 %}disabled{% endif %} id="id_pkpc"  name="pkpc" value={{ pkpc }}><br> </div>
+		<div  class="oclultar" > <label >idproveedor:</label >   </div>
+		<div  class="oclultar" > <input type="text" {% if not hab2 %}disabled{% endif %} id="id_idproveedor"  name="idproveedor" value="{{ presupuestocompcab.idproveedor }}"><br> </div>
+		<div  class="campo1" > 	<label >proveedor:</label>   </div>
+		<div  class="campo2" > <input type="text" {% if not hab2 %}disabled{% endif %}  id="id_proveedor" name="proveedor"  list="porv_list" onchange="codigoprov(this.value)" value="{{ presupuestocompcab.proveedor }}"><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna2"  class="columna2" >
+		<div  class="campo1" > <label >ruc:</label>   </div>
+		<div  class="campo2" > <input type="text" {% if not hab2 %}disabled{% endif %}  id="id_ruc" name="ruc" value="{{ presupuestocompcab.ruc }}"><br> </div>
+		<div  class="campo1" > <label >timbrado:</label>   </div>
+		<div  class="campo2" > <input type="text"  {% if not hab2 %}disabled{% endif %} id="id_timbrado" name="timbrado" value="{{ presupuestocompcab.timbrado }}"><br> </div>
+    	<div  class="campo1" > <label >tipodoc:</label>   </div>
+		<div  class="campo2" > <input class="txtfecha" {% if not hab2 %}disabled{% endif %} type="text"  id="id_tipodoc" name="tipodoc"  list="tipodoc_list" value="{{ presupuestocompcab.tipodoc }}"><br> </div>
+
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna3"  class="columna2" >
+		<div  class="oclultar" > <label >direccion:</label>   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_condicion" name="condicion" value="{{ presupuestocompcab.condicion }}"><br> </div>
+		<div  class="campo1" > 	<label >fechavto :</label>   </div>
+		<div  class="campo2" > 	<input  {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fechavto" name="fechavto" value="{{ presupuestocompcab.fechavto |date:'Y-m-d'}}"><br> </div>
+		<div  class="campo1" > 	<label >fecharece :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecharece" name="fecharece" value="{{ presupuestocompcab.fecharece |date:'Y-m-d'}}"><br> </div>
+		<div  class="campo1" > <label >obs:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_obs" name="obs" value="{{ presupuestocompcab.obs }}"><br> </div>
+		</div>   <!-- COLUMNA 3 -->
+
+		</div><!-- COLUMNA 0-->
+		</form>
+
+
+	<div   class="botones" >
+ 			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('presupuestodecompra_frm').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'presupuestocompcab_cargar' pk_token=pkpc|default:0   %}" >CANCELAR</a>
+			{% endif %}
+ 			{% if not hab2 %}
+			<a class="boton" href="{% url 'presupuestocompcab_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'presupuestocompcab_editar' pk_token=pkpc|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'presupuestocompcab_eliminar' pk_token=pkpc|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'presupuestocompcab_filtro' %}" >BUSCAR</a>
+			{% endif %}
+		</div>
+
+
+		<div id="listadodet" class="listadodet">
+			<ul id="compras-list">
+
+			</ul>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

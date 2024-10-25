@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% csrf_token %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/inicio/css/empresas.css' %}">
+    <script src="{% static '/inicio/js/login.js' %}"></script>
+</head>
+<body>
+
+<div id="divcentralmnu"    class="divcentralmnu">
+ <button class="divempresas"   onClick="menucompras()" >   COMPRAS  </button>
+            <button class="divempresas"  > VENTAS  </button>
+            <button class="divempresas"  > STOCK  </button>
+            <button class="divempresas"  > DEPOSITO  </button>
+            <button class="divempresas"  > MARKETING  </button>
+            <button class="divempresas"  onClick="mnuinventario()" > INVENTARIO  </button>
+</div>
+    
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/compracab.css' %}">
+<script src="{% static '/compras/compras/compracab.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'compracab_filtro' %}" >RETORNAR</a>
+    </div>
+	<div  id="titcab"  class="titcab" >  LISTADO DE FACTURA  </div>
+    </div>
+
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  >
+    <div class ="celdalistadot" >FECHA </div>
+    <div class ="celdalistadot" >FACTURA</div>
+    <div class ="celdalistadot" >PROVEEDOR </div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadot" >RUC </div>
+    <div class ="celdalistadot" >TIMBRADO</div>
+    <div class ="celdalistadot" >TIPO DOC </div>
+    </div>
+
+    </div>
+{% for compracab in compracab %}
+    <div class="columnalst"  >
+    <div class="columnalst1" >
+    <div class ="celdalistado" > {{ compracab.fecha |date:'d-m-Y'}}</div>
+    <div class ="celdalistado" > {{ compracab.nrofactura }}</div>
+    <div class ="celdalistado" > {{ compracab.proveedor }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ compracab.ruc }}</div>
+    <div class ="celdalistado" > {{ compracab.timbrado }}</div>
+    <div class ="celdalistado" > {{ compracab.tipodoc }}</div>
+
+   <div class ="cellistbtn" >
+       <a href="{% url 'compracab_cargar' pk_token=compracab.pkf  %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+
+   </div>   <! columnalst2>
+   </div>   <! columnalst>
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static '/inicio/css/menu-ini.css' %}">
+
+</head>
+<body>
+<div id="panelini" class="panelini" >
+ <div id="divtitulo" class="divtitulo">
+        <div id="idlblempresa" class="dlblempresa">{{ request.session.empresa|upper  }}</div>
+        <div id="idlblsucursal" class="dlblsucursal">- {{ request.session.sucursal|upper  }} </div>
+
+ </div>
+                  <div id="navigation" class="men-ini">
+                        <div class="det" ><a onClick="salir()"       href="#">INICIO</a></div>
+                        <div class="det" ><a href="{% url 'menu' %}" href="#">MENU-INICIAL</a></div>
+                  </div>
+</div>
+</div>     
+    
+</body>
+</html>

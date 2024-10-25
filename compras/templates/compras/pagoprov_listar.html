@@ -1,0 +1,51 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/compras/compras/pagoprovcab.css' %}">
+<script src="{% static '/compras/compras/pagoprovcab.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'pagoprovcab_filtro' %}" >RETORNAR</a>
+    </div>
+	<div  id="titcab"  class="titcab" >  LISTADO  DE PAGOS PROV  </div>
+    </div>
+
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  >
+    <div class ="celdalistadot" >FECHA </div>
+    <div class ="celdalistadot" >RECIBO</div>
+    <div class ="celdalistadot" >PROVEEDOR </div>
+    </div>
+    </div>
+
+{% for pagoproveedor in pagoproveedor %}
+    <div class="columnalst"  >
+    <div class="columnalst1" >
+    <div class ="celdalistado" > {{ pagoproveedor.fecha |date:'d-m-Y'}}</div>
+    <div class ="celdalistado" > {{ pagoproveedor.recibo }}</div>
+    <div class ="celdalistado" > {{ pagoproveedor.proveedor }}</div>
+        <div class ="cellistbtn" >
+       <a href="{% url 'pagoprovcab_cargar' pk_token=pagoproveedor.pkf %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+
+   </div>   <! columnalst1>
+   </div>   <! columnalst>
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>

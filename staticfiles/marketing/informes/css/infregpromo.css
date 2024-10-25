@@ -1,0 +1,88 @@
+
+
+.contprict{
+float:left;
+width:990px;
+height:110px;
+background-color:#0c5384;
+border: 1px solid #000000;
+}
+.compradt,.fechat,.codclit,.clientet {
+float:left;
+width:120px;
+height:20px;
+border-radius:2px;
+padding: 6px 6px;
+color:#fafbfd ;
+}
+.comprad,.fecha,.codcli,.cliente{
+float:left;
+width:130px;
+height:30px;
+border-radius:2px;
+padding:2px 6px;
+}
+.comprad,.codcli,.cliente{
+color:#0a0a0a;
+}
+.cliente{
+width:300px;
+height:25px;
+padding-top:6px;
+}
+
+.btnbcodcsfsli{
+float:left;
+width:250px;
+}
+.cel1,.cel2,.cel3{
+width:292px;
+height:32px;
+float:left;
+}
+.cel3{
+width:450px;
+height:32px;
+float:left;
+}
+.dvbtn{
+width:292px;
+height:32px;
+float:left;
+}
+
+.btifilacli{
+width:292px;
+height:32px;
+float:left;
+}
+
+.filtcol1,.filtcol2,.filtcol3{
+float:left;
+width: 290px;
+height:100px;
+padding: 2px 2px;
+}
+
+
+.btnelieva{
+float:right ;
+width:130px;
+height:30px;
+border-radius:8px;
+padding: 6px 6px;
+}
+
+.btnactdesc{
+float:center;
+width:130px;
+height:30px;
+border-radius:8px;
+padding: 6px 6px;
+}
+
+.optpromo{
+color:#fafbfd ;
+
+}
+

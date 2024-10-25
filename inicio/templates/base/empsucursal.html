@@ -1,0 +1,69 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/inicio/css/empsucursal.css' %}">
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static '/inicio/js/empsucursal.js' %}"></script>
+
+
+</head>
+<body onload="actelementos()">
+<form id="empsucursal_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+<div  class="cont">
+<div  class="empresa">
+
+	<div id="cab"  class="cab" >
+				<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+
+    <div  class="columna1">
+        <div  class="campo1" > <label for="lblflia1">EMPRESA:</label>   </div>
+	    <div  class="campo2" > <input type="text" id="id_empresa" name="empresa"    autocomplete="off" list="empresa_list" onchange="selecempresa()" value="{{ dnempresa }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia2">SUCURSAL:</label>   </div>
+		<div  class="campo2" > <input  type="text" id="id_sucursal" name="sucursal"  autocomplete="off" list="sucursal_list"   value="{{ dnsucursal }}"><br> </div>
+        <div  class="campo1" > <button class="btning" type="submit">SEGUIR</button></div>
+    </div>
+
+
+</div>
+</div>
+</form>
+ <datalist id="empresa_list">
+        {% for opcion in empresas %}
+            <option id="{{ opcion.idempresa }}" value="{{ opcion.empresa }}" </option>
+        {% endfor %}
+ </datalist>
+
+ <datalist id="sucursal_list">
+        {% for opcion in sucursales %}
+            <option id ="{{ opcion.idsucural }}" value="{{ opcion.sucursal }}"></option>
+        {% endfor %}
+ </datalist>
+
+</body>
+</html>
+
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+  {% if messages %}
+  {% for message in messages %}
+            Swal.fire({
+                title: 'LOGIN NO ENCONTRADO',
+                text: 'desea seguir intentado ',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'salir'
+            })
+ {% endfor %}
+ {% endif %}
+ </script>
+
+{% endblock %}

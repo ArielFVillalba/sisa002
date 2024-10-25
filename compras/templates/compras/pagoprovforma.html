@@ -1,0 +1,89 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/compras/compras/proveedor.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/pagoprovcab.css' %}">
+<script src="{% static '/compras/compras/pagoprovcab.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+
+</head>
+<body onload="actelementos(), cargarcombos(), actcompelem()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menuproveedor' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+
+		<form id="pagoprovcab_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value={{ pagoproveedor.fecha |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >recibo:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  class="txtnrofactura" id="id_recibo" name="recibo" value={{ pagoproveedor.recibo }} > <br> </div>
+		<div  class="oclultar" > <label >idcompracab:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkf"  name="idpkf" value={{ pkf }}><br> </div>
+		<div  class="oclultar" > <label >idproveedor:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_idproveedor"  name="idproveedor" value={{ pagoproveedor.idproveedor }}><br> </div>
+		<div  class="campo1" > 	<label >proveedor:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_proveedor" name="proveedor"  list="porv_list" onchange="codigoprov(this.value)" value={{ pagoproveedor.proveedor }}><br> </div>
+		<div  class="campo1" > 	<label >total:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_total" name="total"   value={{ pagoproveedor.total }}><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		</div><!-- COLUMNA 0-->
+		</form>
+
+		<div   class="botones" >
+ 			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('pagoprovcab_frm').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'pagoprovcab_cargar' pk_token=pkf|default:0   %}" >CANCELAR</a>
+			{% endif %}
+ 			{% if not hab2 %}
+			<a class="boton" href="{% url 'pagoprovcab_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'pagoprovcab_editar' pk_token=pkf|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'pagoprovcab_eliminar' pk_token=pkf|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'pagoprovcab_filtro' %}" >BUSCAR</a>
+			<a class="boton" href="{% url 'pagoprovafact_listar' pk_token=pkf|default:0   %}" >FACTURA</a>
+			<a class="boton" href="{% url 'pagoprovafact_listar' pk_token=pkf|default:0   %}" >PAGO</a>
+
+			{% endif %}
+
+		</div>
+
+		<div id= "lin00'+ lin +'" class ="detallelinea1" style="background-color:white; width:80%;  padding-left: 50px;" >
+        <label id="jjj" style= " color: black;  font-size: 22px;  line-height: 1; font-weight: bold;"
+      	 > FORMA  PAGO</label>  </div>
+		<div id="listpagofact" class="listadodet"> <ul id="pagoprovfact-list"></ul>	</div>
+
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

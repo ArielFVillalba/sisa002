@@ -1,0 +1,168 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+
+<script src="{% static '/stock/stock/articulos.js' %}"></script>
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+<script src="{% static '/ventas/ventas/cliente.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static '/caja/caja/ventacaja.css' %}">
+<script src="{% static '/caja/caja/ventacaja.js' %}"></script>
+<script src="{% static '/caja/caja/cajaformadepago.js' %}"></script>
+
+</head>
+
+<body onload="actelementos(), funcompcab()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			{% if not hab2 %}
+			<a class="btnb"  href="{% url 'menucaja' %}" >RETORNAR</a>
+			{% endif %}
+ 			{% if not hab1 %}
+			<a class="btnb"   href="{% url 'ventacaja_cargar' pk_token=pk_token|default:0   %}">RETORNAR</a>
+			{% endif %}
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+		<div  id="btncab2"  class="btncab" >
+			{% if not hab2 %}
+			<a class="btnc" style="float:right;"  href="{% url 'ventacierre_cargar' pk_token=pk_token|default:0   %}">  COBRAR   </a>
+			{% endif %}
+ 			{% if not hab1 %}
+			<!--<a class="btnb" href="#" onclick="imprimir006()" >imprimirpdf</a>
+     		<a class="btnc" href="{% url 'ventacaja_cerrarventa' pk_token=pk_token|default:0   %}">   IMPRIMIR   </a>
+			-->
+
+			<a class="btnc" style="float:right;"  href="#" onclick="imprimirfactura('{{ pk_token }}')" >imprimirticket</a>
+
+			{% endif %}
+		</div>
+    </div>
+ 	{% if not hab2 %}
+	<div id="cabtotal" class="cabfacturatotal"  >
+	    <div id="factura" class="facturatotal"  style="text-align:left; width: 150px; font-size: 20px; padding: 5px;" >F: {{ factura }} </div>
+		<div id="total" class="facturatotal"  style="text-align:center; float:right; font-size: 25px; padding: 5px;" > </div>
+
+	</div>
+	{% endif %}
+
+		<form id="venta_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0" class="columna0" style="{{ hab3 }}"  >
+
+		<div id="columnaint"  class="columnaint" >
+		<div id="columnax"  class="columnax" >
+		<div  class="campo1" > <label >FECHA :</label>   </div>
+		<div  class="campo2" > <input {% if not hab1 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value='{{ ventacab.fecha |date:'Y-m-d'}}'><br> </div>
+		<div  class="campo1" > <label >FACTURA :</label>   </div>
+		<div  class="campo2" > <input class="campofact"  {% if not hab1 %}disabled{% endif %} type="text"  class="txtnrofactura" id="id_nrofactura" name="nrofactura" value='{{ ventacab.nrofactura }}' > <br> </div>
+		<div  class="oclultar" > <label >idventacab :</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkf"  name="pkf" value={{ pkf }}><br> </div>
+		<div  class="oclultar" > <label >idcliente :</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_idcliente"  name="idcliente" value={{ ventacab.idcliente_id }}><br> </div>
+		<div  class="campo1" > <label >RUC :</label>   </div>
+		<div  class="campo2" >
+		<div  class="camporuc" >
+		<input  {% if not hab2 %}disabled{% endif %} type="text"
+					id="id_ruc" name="ruc"
+					onkeyup="pasarcampo(event,id)"  value='{{ ventacab.ruc }}'><br>
+		</div>
+					 <a class="btnc" href="{% url 'cliente_cargar' pk_token=''|default:0   %}">  CARGAR   </a>
+        </div>
+		<div  class="campo1" > 	<label >CLIENTE :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"
+		 id="id_cliente" name="cliente"  list="cli_list"
+		 onfocus="clicidruc()" onchange="codigocli(this.value)"
+		 value="{{ ventacab.cliente }}"><br>
+		</div>
+
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columnay"  class="columnaz" >
+		<div  class="mcampo1" > 	<label >FORMA PAGO </label>   </div>
+		<div  class="mcampo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_fpago" name="fpago"  list="formadepago-list"  value='EFECTIVO'><br> </div>
+		<div  class="mcampo1" > 	<label >DESC :</label>   </div>
+		<div  class="mcampo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="desc" name="desc"  ><br> </div>
+	    <div  class="mcampo1" > 	<label >MONTO :</label>   </div>
+		<div  class="mcampo2" > <input {% if not hab2 %}disabled{% endif %} type="text" onkeydown="procesarpago(event)" id="monto" name="monto"  ><br> </div>
+	    <div  class="mcampo1" >   </div>
+	    <div  class="mcampo2" >
+			<div class="contbtn"><a class="btnb" href="#" onclick="cargarpago()" >GUARDAR</a></div>
+
+  		</div>
+
+
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columnaz"  class="columnaz" >
+		<div  class="mcampo1" > 	<label >TOTAL :</label>   </div>
+		<div  class="mcampo2" > <input {% if not hab1 %}disabled{% endif %} style="text-align:right;"  type="text"  id="idtotal" name="total" value={{ total }}><br> </div>
+		<div  class="mcampo1" > <label >DESCUENTO :</label>   </div>
+		<div  class="mcampo2" > <input {% if not hab1 %}disabled{% endif %} style="text-align:right;"  type="text"  id="iddescuento" name="descuento" value='{{ ventacab.descuento }}'  ><br> </div>
+	    <div  class="mcampo1" > <label >SALDO :</label>   </div>
+		<div  class="mcampo2" > <input {% if not hab1 %}disabled{% endif %} style="text-align:right;"  type="text" id="idsaldo" name="saldo"  value='{{ saldo }}' ><br> </div>
+	    <div  class="mcampo1" > <label >VUELTO :</label>   </div>
+		<div  class="mcampo2" > <input {% if not hab1 %}disabled{% endif %} style="text-align:right;"  type="text" id="idvuelto" name="vuelt"  value='{{ vuelto }}' ><br> </div>
+
+		</div>   <!-- COLUMNA 1 -->
+		</div>   <!-- COLUMNAint-->
+
+		<div id="columna2"  class="columna2" style="display: none;" >
+		<div  class="campo1" > <label >timbrado:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_timbrado" name="timbrado" value='{{ ventacab.timbrado }}'><br> </div>
+    	<div  class="campo1" > <label >tipodoc:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} class="txtfecha" type="text"  id="id_tipodoc" name="tipodoc"  list="tipodoc_list" value='{{ ventacab.tipodoc }}'><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+
+		<div id="columna3"   class="oclultar" >
+		<div  class="oclultar" > <label >direccion:</label>   </div>
+		<div  class="oclultar" > <input  {% if not hab2 %}disabled{% endif %} type="text"  id="id_condicion" name="condicion" value='{{ ventacab.condicion }}'><br> </div>
+		<div  class="campo1" > 	<label >fechavto :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %}  type="date" class="txtfecha" id="id_fechavto" name="fechavto" value={{ ventacab.fechavto |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > 	<label >fecharece :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecharece" name="fecharece" value={{ ventacab.fecharece |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >obs:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_obs" name="obs" value={{ ventacab.obs }}><br> </div>
+	    <div  class="campo1" > <label >deposito:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_deposito" name="deposito"  list="deposito_list"  value={{ ventacab.deposito }}><br> </div>
+		</div>   <!-- COLUMNA 2-->
+		</div>   <!-- COLUMNA 0 -->
+		</form>
+
+		<div id="columna01" class="columna0" style="{{ hab3 }}" >
+			<div id="columna11"  class="columna1" >
+				<ul id="pagoclifpago-list" >	</ul>
+			</div>
+		</div>   <!-- COLUMNA 0 -->
+
+	     <div id="listadodet" class="listadodet" style="{{ hab4 }}" >	<div id="venta-list"  ></div>	</div>
+
+		 <div id="contimagen"  class="colimag" style="{{ hab4 }}">
+			 <img id="imagenArticulo"  src="{% static 'imagen/imagenes/' %}{{ articulo.codigo }}.png" alt="..sin imagen">
+    	</div>   <!-- contimagen-->
+			<div id="modal" class="modal">
+  			<!-- Contenido de la modal -->
+  			<div class="modal-contenido"></ul>
+			</div>
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+      {% endfor %}
+    {% endif %}
+</script>
+
+{% endblock %}

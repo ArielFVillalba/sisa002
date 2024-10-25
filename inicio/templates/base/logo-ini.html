@@ -1,0 +1,23 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static '/inicio/css/logo-ini.css' %}">
+
+</head>
+<body>
+<div id="panelogo" class="panellogo"> 
+    <div id="Logo" class="Logo"> <img src="{% static 'imagen/imagenes/fondo.png' %}" alt="Cargando imagen..."> </img>
+    </div>
+     <div id="nomusu" class="nomusu" >
+         <div id="nomusulab" class="nomusulab"> <label id="labusuario" class="bnvtit">
+                {% if user.is_authenticated %}  <p>Bienvenido: {{ user.username|upper  }}</p>
+                {% else %} <p>No has iniciado sesión.</p> {% endif %}
+
+
+                  </label>  </div>
+     </div>
+    </div>
+</div>     
+</body>
+</html>

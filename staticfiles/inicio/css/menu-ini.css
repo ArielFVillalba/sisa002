@@ -1,0 +1,75 @@
+.panelini {
+position:right;
+width:420px;
+height:60px;
+float:left;
+border-color: #999;
+border-radius: 5px;
+border: 1px solid #000000;
+border-color: transparent;
+}
+
+.men-ini {
+    border: 1px solid #000000;
+    border-color: transparent;
+	height: 35px;
+	width:400px;
+}
+.det {
+    float:left;
+    border: 1px solid #000000;
+    border-color: transparent;
+	height: 30px;
+	width:130px;
+	font: 16px Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+a:hover{
+ background:#4169E1;
+ color:#fff;
+}
+a:focus{
+color:008B8B;
+background-color:#c8c8c8;
+}
+
+.menuflia {
+background-color: coral;
+height: 100%;
+border: 1px solid #000000;
+border-color: transparent;
+width:15%;
+min-width:100px;
+min-height:25px;
+height:100%;
+border-radius: 3px ;
+background-color:#F5F5F5;
+border: 1px solid blue;
+float:left;
+align-items: right;
+justify-content: right;
+margin-left: auto;
+margin-right: auto;
+}
+.divtitulo {
+width:380px;
+height:30px;
+border: 1px solid #000000;
+border-color: transparent;
+
+}
+.dlblempresa ,.dlblsucursal{
+float:left;
+width:180px;
+height:30px;
+font: 18px Arial, Helvetica, sans-serif;
+justify-content: center;
+border: 1px solid #000000;
+border-color: transparent;
+}
+@media only screen and (max-device-width : 600px)  {
+.panelini {
+        width: 100vw;
+    }
+}

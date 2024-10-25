@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/pedidodecompra.css' %}">
+<script src="{% static '/compras/compras/pedidodecompra.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+	        <a class="btn" href="{% url 'pedidocompcab_filtro' %}" >RETORNAR</a>
+    </div>
+	<div  id="titcab"  class="titcab" >  PEDIDO DE COMPRA  </div>
+    </div>
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  >
+    <div class ="celdalistadot" >FECHA </div>
+    <div class ="celdalistadot" >NRO PEDIDO</div>
+    <div class ="celdalistadot" >PROVEEDOR </div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadot" >RUC </div>
+    <div class ="celdalistadot" >TIMBRADO</div>
+    <div class ="celdalistadot" >TIPO DOC </div>
+    </div>
+
+    </div>
+{% for pedidocompcab in pedidocompcab %}
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistado" > {{ pedidocompcab.fecha |date:'d-m-Y'}}</div>
+    <div class ="celdalistado" > {{ pedidocompcab.nropedido }}</div>
+    <div class ="celdalistado" > {{ pedidocompcab.proveedor }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ pedidocompcab.ruc }}</div>
+    <div class ="celdalistado" > {{ pedidocompcab.timbrado }}</div>
+    <div class ="celdalistado" > {{ pedidocompcab.tipodoc }}</div>
+
+   <div class ="cellistbtn" >
+       <a href="{% url 'pedidocompcab_cargar' pk_token=pedidocompcab.pkpc %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+
+   </div>   <! columnalst2>
+   </div>   <! columnalst>
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+

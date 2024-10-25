@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/js/miAJAXlib.js' %}"></script>
+<link rel="stylesheet" href="{% static '/inicio/css/login.css' %}">
+<script src="{% static '/inicio/js/login.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+
+</head>
+<body onload="actelementos()">
+<form id="login_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+<div  class="contusuario">
+<div  class="usuario">
+
+	<div id="cab"  class="cab" >
+				<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+    <p>
+        <label for="usernamet" class="usernamet" > Nombre de usuario: </label>
+        <input id="username" class ="username" value ="ariel" name="username"  type="text" placeholder="nombre de usuario"/>
+    </p>
+    <p> <label for="passwordt" class="passwordt"> Contraseña:</label>
+         <input id="password" class="usercont" name="password" value="ariel2000" type="password" placeholder="contraseña"/>
+    </p>
+    <p> <label  id="msne" class="msnexito"> </label>
+       <button class="btningusu" type="submit">INGRESAR</button>
+
+
+ </div>
+</div>
+</form>
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+  {% if messages %}
+  {% for message in messages %}
+            Swal.fire({
+                title: 'LOGIN NO ENCONTRADO',
+                text: 'desea seguir intentado ',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'salir'
+            })
+ {% endfor %}
+ {% endif %}
+ </script>
+
+{% endblock %}

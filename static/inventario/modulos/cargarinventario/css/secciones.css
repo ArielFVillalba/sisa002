@@ -1,0 +1,76 @@
+.Table_form_secciones,.tabla{
+float:left;
+width: 950px;
+height: 210px;
+border: 1px solid #000000;
+}
+.Title_form_secciones{
+float:left;
+width:900px;
+height:20px;
+background-color:#85C1E9;
+font: 14px Arial,bold;
+text-decoration:none;
+text-align: center;
+justify-content: center;
+//border: 1px solid #000000;
+border-color: transparent;
+}
+.Title_dato_secciones{
+float:left;
+width:900px;
+height:30px;
+padding-top:8px;
+background-color:#D5DBDB ;
+//border: 1px solid #000000;
+border-color: transparent;
+font: 8px Arial, bold;
+}
+
+.Heading{
+display: table-row;
+font-weight: bold;
+text-align: center;
+border: 1px solid #000000;
+}
+.Row_form_secciones{
+/*display: table-row;*/
+}
+.datos_form_secciones,.Title_dato_secciones{
+float:left;
+width:900px;
+height:30px;
+padding-top:8px;
+padding-left:4px;
+background-color:#D5DBDB ;
+border: 1px solid #000000;
+border-color: transparent;
+font: 10px Arial,  sans-serif ,bold;
+}
+.Title_dato_secciones{
+background-color:#00CED1 ;
+text-align: center;
+justify-content: center;
+}
+.fecha_form_secciones{
+float:left;
+width:900px;
+height:30px;
+padding-top:8px;
+background-color:#D5DBDB ;
+border: 1px solid #000000;
+font: 12px Arial,  sans-serif ,bold;
+}
+.btn_form_secciones{
+float:left;
+width:900px;
+height:30px;
+background-color:#E3BB84  ;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+}
+button:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+
+ 

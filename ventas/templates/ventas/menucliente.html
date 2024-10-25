@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/compras/compras/menucompras.css' %}">
+<script src="{% static '/compras/compras/menucompras.js' %}"></script>
+</head>
+<body onload="actelementos()">
+
+ <div class="contenedor-menu-cat">
+ <ul class="menu-cat">
+
+ <li><a class ="atexttit" href="#"onclick="seleccab();">CLIENTE</a>  <ul class="menu-cat">
+ <li><a href="{% url 'cliente_cargar' pk_token=0 %}" >CLIENTES </a> </li>
+ <li><a href="{% url 'pagoclicab_cargar' pk_token=0 %}" >PAGO DE CLIENTES </a> </li>
+
+
+ </ul>
+ </li>
+
+
+ </ul> </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,157 @@
+
+
+.familia {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+ border: 1px solid #000000;
+}
+
+.familia-contenido {
+  background-color: #fefefe;
+  margin: 50px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 550px;
+}
+
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.contenedor-menu-cat {
+width:500px;
+min-width:150px;
+height:100%;
+#border-radius: 20px ;
+#background-color:#fff;
+#float:left;
+#background:#778899;
+}
+
+.contenedor-menu-cat .menu-cat {
+width:100%;
+background-color:#fff;
+}
+
+.contenedor-menu-cat ul {
+padding:1px ;
+padding-left:20px ;
+list-style:none;
+}
+
+.contenedor-menu-cat .menu-cat li a {
+color:#fff;
+display:block;
+padding:8px 5px;
+background:#778899;
+border-radius: 6px;
+#border:1px solid green;
+}
+
+#.contenedor-menu-cat .menu-cat li a:hover {
+ background:#4169E1;
+ color:#fff;
+}
+
+.contenedor-menu-cat .menu-cat .icono {
+     font-size:4px;
+     line-height:14px;
+}
+
+.contdivcentral{
+float:left;
+#border: 1px solid orange ;
+width:100%;
+}
+.contdivizq{
+float:left;
+border: 1px solid red ;
+width:20%;
+}
+
+.contenedor-menu-cat .menu-cat .icono.izquierda {
+float:left;
+#margin-right:5px;
+#border: 1px solid #000000;
+}
+
+.contenedor-menu-cat .menu-cat .espacio.izquierda {
+float:left;
+#margin-right:5px;
+border: 1px solid White ;
+
+}
+.contenedor-menu-cat .menu-cat .icono.derecha {
+float:right;
+border-radius: 6px ;
+margin-left:3px;
+font: 12px Arial;
+#border: 1px solid #000000;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Horizontal desplazamiento, vertical desplazamiento, desenfoque, color */
+}
+.contenedor-menu-cat .menu-cat .icono.derecha:hover  {
+float:right;
+margin-left:5px;
+font: 12px Arial;
+background:#c8c8c8;
+color:#fff;
+transition: box-shadow 0.3s ease; /* Agrega una transición suave */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Cambia la sombra al hacer hover */
+}
+.contenedor-menu-cat .menu-cat ul{
+ display:none;
+# border: 1px solid red;
+}
+
+.contenedor-menu-cat .menu-cat ul li a {
+ background:#424242;
+ color:#fff;
+ font: 12px Arial;
+ #border: 1px solid #000000;
+}
+
+.plus-sign {
+margin-right: 2px; /* Ajusta el espaciado entre el símbolo y el texto */
+#color:red;
+width:100px;
+#border: 1px solid #000000;
+}
+
+.contenedor-menu-cat .menu-cat .activado > a {
+ background:#1E90FF;
+ #color:#fff;
+}
+
+.atexttit{
+font: 16px Arial;
+}
+.espbtnfl{
+width:110px;
+height:30px;
+font: 12px Arial;
+//border: 1px solid #000000;
+}
+
+@media only screen and (max-device-width : 600px)  {
+    .contenedor-menu-cat {
+       width: 100vw;
+    }
+}

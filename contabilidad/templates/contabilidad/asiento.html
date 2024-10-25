@@ -1,0 +1,157 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/contabilidad/contabilidad/asiento.js' %}"></script>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static '/contabilidad/contabilidad/asiento.css' %}">
+
+</head>
+<body onload="actualizar(),actelementos()">
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucontabilidad' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+	    <div id="columna0"  class="columna0" >
+		<form id="formasiento" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="grpcabecera"  class="grpcabecera" >
+		<div id="idcolumna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value="{{ asiento.fecha |date:'Y-m-d'}}"><br> </div>
+		<div  class="campo1" > <label >N° asiento:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"   id="id_nroasiento" name="nroasiento" value="{{ asiento.nroasiento }}" > <br> </div>
+		</div>   <!-- idcolumna1 1 -->
+		<div id="idcolumna2"  class="columna1" >
+		<div  class="campo1" > <label >T debe :</label>   </div>
+		<div  class="campo2" > <input {% if not False %}disabled{% endif %} type="text" style="text-align: right;" id="id_debe" name="debe" value="{{ asiento.debe }}"><br> </div>
+		<div  class="campo1" > <label >T haber:</label>   </div>
+		<div  class="campo2" > <input {% if not False %}disabled{% endif %} type="text" style="text-align: right;" id="id_haber" name="haber" value="{{ asiento.haber }}" > <br> </div>
+		</div>   <!-- idcolumna1 1 -->
+
+
+		<div id="idcolumna3"  class="columna3" >
+		<div  class="campdes1" > <label >descripcion:</label>   </div>
+		<div  class="campdes2" > <input {% if not hab2 %}disabled{% endif %} type="text"   id="id_descripcion" name="descripcion" value="{{ asiento.descripcion }}"> <br> </div>
+		</div>   <!-- idcolumna1 1 -->
+
+		</div>   <!-- grpcabecera 1 -->
+		</form>
+
+			<div   class="botones" >
+			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('formasiento').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'asiento_cargar' pk_token=pk_token|default:0   %}" >CANCELAR</a>
+			{% endif %}
+			{% if not hab2 %}
+			<a class="boton" href="{% url 'asiento_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'asiento_editar' pk_token=pk_token|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'asiento_eliminar' pk_token=pk_token|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'asiento_listar' cadena=0   %}" >BUSCAR</a>
+			{% endif %}	</div>
+
+     		<div class="espacio011" ></div>
+
+
+			<div class="grpdetfil0" style="padding:10px;" >
+			<div class="grpdetfil1" >
+			<div class ="ordent" > N° </div>
+			<div class ="cuentat"  > CUENTA </div>
+			<div class ="denominaciont" > DENOMINACION </div>
+			</div>
+			<div class="grpdetfil2"  >
+			<div class ="debet" > DEBE </div>
+			<div class ="habert"> HABER </div>
+			</div>
+			</div>
+			<div class="espacio011" ></div>
+
+			<div id="grpdetalle"  class="grpdetalle" >
+
+
+			{% for asiento_det in asiento_det %}
+			<div class="grpdetfil0" >
+			<div class="grpdetfil1" >
+			<div class="orden" id="id_orden{{ forloop.counter }}" name="orden{{ forloop.counter }}">
+							{{ asiento_det.orden }}	</div>
+			<div class="cuenta" id="id_cuenta{{ forloop.counter }}" name="cuenta{{ forloop.counter }}">{{ asiento_det.cuenta }}</div>
+			<div class="denominacion" id="id_denominacion{{ forloop.counter }}" name="denominacion{{ forloop.counter }}">{{ asiento_det.denominacion }}</div>
+
+			</div>
+			<div class="grpdetfil2">
+			<div id="id_debe{{ forloop.counter }}" name="debe{{ forloop.counter }}" class="debe">{{ asiento_det.debe }}</div>
+			<div class="haber" id="id_haber{{ forloop.counter }}" name="haber{{ forloop.counter }}">{{ asiento_det.haber }}</div>
+				<div class="celdalistado">
+					<a class="btnlstm" onClick="actastdet('{{ forloop.counter }}','{{ asiento_det.pkasdet }}')">editar</a>
+					<a class="btnlste" href="{% url 'asiento_det_eliminar' pk_token=asiento_det.pkasdet|default:0 %}">borrar</a>
+				</div>
+
+				</div> <!-- grpdetalle 2 -->
+			</div> <!-- grpdetfil0 -->
+			{% endfor %}
+	</div>   <!-- grpdetalle  -->
+	<div class="espacio011" ></div>
+    <div class="grpdetfil0"  >
+	<div class="grpdetfil1" >
+		<div  class="orden" > <input {% if not False %}disabled{% endif %}  type="text"  id="id_orden" name="orden"  > <br> </div>
+		<div  class="cuenta" > <input {% if not hab1 %}disabled{% endif %} type="text"
+		 onkeypress ="optecla(event,'id_cuenta')" onblur="ofcuenta()"
+		  id="id_cuenta" name="cuenta" > <br> </div>
+	    <div  class="denominacion" > <input type="text" id="id_denominacion" list="cuenta_cont_list"
+		 onkeypress ="optecla(event,'id_denominacion')" onblur="ofdenominacion()"
+		 name="denominacion"  autocomplete="on"><br>
+		</div>
+ 	</div> <!-- grpdetalle 1 -->
+
+	<div class="grpdetfil2" >
+		<div  class="debe" > <input {% if not hab1 %}disabled{% endif %}  type="text"
+		 onkeyup ="optecla(event,'id_cdebe')"  id="id_cdebe" >  </div>
+		<div  class="haber" > <input {% if not hab1 %}disabled{% endif %} type="text"
+		 onkeyup ="optecla(event,'id_chaber')" id="id_chaber"  >  </div>
+
+		<div class ="celdalistado" >
+			<button id="btnagregar" class="btnlstm"  onClick="cargarasientodet('{{ pk_token }}')" >  guardar </button>
+			<button id="btnmodificar" class="btnlstm" data-pk="{{ pk_token }}" data-pk-det="{{ pk_token_det }}" onClick="actasientodet()">guardar</button>
+			<button id="btncancelar" class="btnlstm"  onClick="cancelar_det()" > cancelar </button>
+		</div>
+
+
+	</div> <!-- grpdetalle 2 -->
+	</div> <!-- grpdetfil0 -->
+<datalist id="cuenta_cont_list">
+	<!-- Iterar sobre la lista de cuentas y mostrar denominación -->
+    {% for cuenta in cueta_cont_list %}
+    <option id="{{ cuenta.idcuenta }}" value="{{ cuenta.denominacion }}">{{ cuenta.denominacion }}</option>
+    {% endfor %}
+</datalist>
+
+</div><!-- COLUMNA 0-->
+
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

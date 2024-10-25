@@ -1,0 +1,74 @@
+{% extends "base/base2.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/inventario.css' %}">
+<script src="{% static '/stock/stock/inventario.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="inventariocab"  class="inventariocab" >
+		<div  id="inventariobtncab"  class="inventariobtncab" >
+
+		</div>
+		<div  id="inventariotitcab"  >
+			<h1 class="inventariotitcab"  id="titleElement">{{ title }}</h1>
+		</div>
+    </div>
+		<form id="forminventariotoma" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label for="lblflia1">toma:</label>   </div>
+		<div  class="campo1" > <input disabled type="text" id="id_nrotoma" value ="{{ nrotoma }}"  name="nrotoma"   ><br></div>
+		<div  class="campo1" > <label for="lblflia1">deposito:</label>   </div>
+     	<div  class="campo1" > <label for="lblflia1">{{ deposito }} </label>   </div>
+		<div  class="campo1" > <label for="lblflia1">codigo:</label>  </div>
+     	<div  class="campo2" > <input type="text" id="id_codigo" name="codigo" onkeydown="pasarcampo(event,id)"   ><br> </div>
+		<div  class="campo1" > <label for="lblflia1">cantiad:</label>  </div>
+     	<div  class="campo2" > <input type="text" id="id_cantidad" name="cantidad" onkeydown="pasarcampo(event,id)"   ><br> </div>
+		<div  class="campo1" ></div> <div  class="campo2" ></div>
+		<div  class="botones" >
+		<a	  class="boton" href="#" onclick="cargarcodigo();">INGRESAR</a>
+		<a    class="boton" href="{% url 'inv_toma_login'%}" >CANCELAR</a>
+
+		<div >
+		<div  class="campo1" ></div> <div  class="campo2" ></div>
+
+		<div id="listcontg"  class="listcontg"  >
+    	<div class ="celdatomado" >CODIGO </div>
+    	<div class ="celdatomado" >CANTIDAD </div>
+		{% for grp in tomainv %}
+		<div class ="celdatomado" > {{ grp.codigo }}</div>
+		<div class ="celdatomado" > {{ grp.cantidad }}</div>
+		{% endfor %}
+		</div>		</div> 		</div>
+		</div><!-- COLUMNA 2-->
+		</div><!-- COLUMNA 0-->
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

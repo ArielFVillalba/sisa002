@@ -1,0 +1,73 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/ventas/ventas/pagoclicuotalst.css' %}">
+<script src="{% static '/ventas/ventas/pagoclicuotalst.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actcompelemcomp()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+		<a class="btn" href="{% url 'pagoclicab_cargar'  pk_token=pk_token|default:0   %}" >RETORNAR</a>
+    </div>
+        <div  id="titcab"  class="titcab" >  LIST. CTA. CLIENTE  </div>
+    </div>
+<div>
+<div  class="cab" >
+ </div>
+
+
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistadot" >fecha fact </div>
+    <div class ="celdalistadot" >factura</div>
+    <div class ="celdalistadot" >total fact</div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadot" >fecha vto</div>
+    <div class ="celdalistadot" >cuota </div>
+    <div class ="celdalistadot" >saldo </div>
+    </div>
+    </div>
+{% for cuota in cuota %}
+<form id="procuotas_frm" action="{{ sidr }}" value="CONFIRMAR" method="POST">
+
+     {% csrf_token %}
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+
+    <div class ="celdalistado" > {{ cuota.fechafactura }}</div>
+    <div class ="celdalistado" > {{ cuota.factura }}</div>
+    <div class ="celdalistador" > {{ cuota.total}}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ cuota.fechavto }}</div>
+    <div class ="celdalistado" > {{ cuota.cuota }}</div>
+    <div class ="celdalistador" > {{ cuota.saldo }}</div>
+    <div class ="celdalistado" >
+		    <a class="boton" href="{% url 'pagoclifact_agregar' pk_token1=cuota.pkpp|default:0 pk_token2=cuota.pkfd|default:0   %}" >CARGAR</a>
+   </div>
+   </div>
+   </div>
+</form>
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+
+<script>
+function submitForm() {
+    // Submit the form
+    document.getElementById('procuotas_frm').submit();
+}
+</script>

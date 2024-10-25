@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresión Automática de Tickets</title>
+    <script>
+        function checkForNewTickets() {
+            fetch('/check_new_tickets')  // Llamada al servidor principal (Django)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.hasNewTicket) {
+                        sendToLocalPrintServer(data.ticketContent);  // Envía el contenido al servidor de impresión local
+                    }
+                })
+                .catch(error => console.error('Error verificando nuevos tickets:', error));
+        }
+
+        function sendToLocalPrintServer(ticketContent) {
+            fetch('http://localhost:8001/print', {  // Servidor de impresión local
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ content: ticketContent }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Ticket enviado a la impresora.');
+                } else {
+                    console.error('Error al enviar el ticket a la impresora.');
+                }
+            })
+            .catch(error => console.error('Error al comunicarse con el servidor de impresión local:', error));
+        }
+
+        // Inicia el polling cada 5 segundos
+        setInterval(checkForNewTickets, 5000);  // 5000 ms = 5 segundos
+    </script>
+</head>
+<body>
+    <h1>Sistema de Impresión Automática de Tickets</h1>
+</body>
+</html>

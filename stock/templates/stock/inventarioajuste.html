@@ -1,0 +1,73 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/stock/stock/familiatree.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/familiatree.css' %}">
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/inventario.css' %}">
+<script src="{% static '/stock/stock/inventario.js' %}"></script>
+
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="inventariocab"  class="inventariocab" >
+		<div  id="btncab"  class="inventariobtncab" >
+			<a class="btn" href="{% url 'menustock' %}" >RETORNAR</a>
+		</div>
+		<div  id="inventariotitcab"  >
+			<h1 class="inventariotitcab"  id="titleElement">{{ title }}</h1>  </div>
+    </div>
+		<form id="forminvajuste" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input type="date" class="fecha" id="id_fecha" name="fecha" value="{{ inventaro.fecha |date:'Y-m-d'}}"><br> </div>
+		<div  class="campo1" > <label for="lblflia1">nro toma:</label>   </div>
+		<div  class="campo2" > <input  type="text" id="id_nrotoma" name="inventario1"  class="nrotoma" value="{{ inventaro.nrotoma }}"><br> </div>
+
+		<div  class="campo1" ></div> <div  class="campo2" ></div>
+			<div   class="botones" >
+			{% if not var1 %}
+		    <a class="boton"   href="#" onclick="generarajuste()" >EJECUTAR</a>
+			{% endif %}
+			</div>			</div>
+
+</div><!-- COLUMNA 0-->
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+ <script>
+    {% if messages %}
+        {% for message in messages %}
+            var icon = '';
+            if ('{{ message.tags }}' === 'error') {
+                icon = 'error';
+            } else if ('{{ message.tags }}' === 'warning') {
+                icon = 'warning';
+            } else if ('{{ message.tags }}' === 'info') {
+                icon = 'info';
+            } else if ('{{ message.tags }}' === 'success') {
+                icon = 'success';
+            }
+            Swal.fire({
+                title: '',
+                text: '{{ message }}',
+                icon: icon,
+                customClass: {
+                    container: 'msnsuccess',
+                }
+            });
+        {% endfor %}
+    {% endif %}
+</script>
+{% endblock %}

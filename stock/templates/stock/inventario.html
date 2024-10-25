@@ -1,0 +1,99 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/stock/stock/familiatree.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/familiatree.css' %}">
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/inventario.css' %}">
+<script src="{% static '/stock/stock/inventario.js' %}"></script>
+
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+
+	<div id="inventariocab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menustock' %}" >RETORNAR</a>
+		</div>
+		<div  id="inventariotitcab"  >
+			<h1 class="titcab"  id="titleElement">{{ title }}</h1>  </div>
+    </div>
+
+		<form id="forminventario" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date"  id="id_fecha" name="fecha"  class="fecha" value="{{ inventaro.fecha |date:'Y-m-d'}}"><br> </div>
+		<div  class="campo1" > <label for="lblflia1">nro toma:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_nrotoma" name="inventario1"  class="nrotoma" value="{{ inventaro.nrotoma }}"><br> </div>
+		<div  class="campo1" > <label >deposito:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_deposito" name="deposito"  list="deposito_list"  value="{{ inventaro.deposito }}"><br> </div>
+		<div  class="campo1" > <label >obs:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_obs" name="obs" class="observacion"   value="{{ inventaro.obs }}"><br> </div>
+		<div  class="campo1" ></div> <div  class="campo2" ></div>
+
+			<div   class="botones" >
+			{% if not var1 %}
+     		<a  class="boton" href="#" onclick="nuevo();">NUEVO </a>
+			<a  class="boton" href="#" onclick="generarainv();">GENERAR </a>
+     		<a  class="boton" href="#" onclick="abrirfliatree();">FAMILIA </a>
+			{% endif %}
+			</div>
+
+		</div>   <!-- COLUMNA 1 -->
+
+		<div id="columna2"  class="columna2" >
+		<div id="listadodetf" class="listadodetf"> 	</div>
+
+		</div>   <!-- COLUMNA 2-->
+
+</div><!-- COLUMNA 0-->
+
+
+
+
+<!-- Contenedor de la modal -->
+<div id="familia" class="familia">
+  <!-- Contenido de la modal -->
+  <div class="familia-contenido">
+			<ul id="familia-list">	</ul>
+  </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+ <script>
+    {% if messages %}
+        {% for message in messages %}
+            var icon = '';
+            if ('{{ message.tags }}' === 'error') {
+                icon = 'error';
+            } else if ('{{ message.tags }}' === 'warning') {
+                icon = 'warning';
+            } else if ('{{ message.tags }}' === 'info') {
+                icon = 'info';
+            } else if ('{{ message.tags }}' === 'success') {
+                icon = 'success';
+            }
+            Swal.fire({
+                title: '',
+                text: '{{ message }}',
+                icon: icon,
+                customClass: {
+                    container: 'msnsuccess',
+                }
+            });
+        {% endfor %}
+    {% endif %}
+</script>
+{% endblock %}

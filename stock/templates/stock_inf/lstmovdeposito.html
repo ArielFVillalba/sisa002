@@ -1,0 +1,80 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+<head>
+
+<script src="{% static '/js/jsPDF-AutoTable-master/libs/libs/jspdf.umd.js' %}"></script>
+<script src="{% static '/js/jsPDF-AutoTable-master/dist/jspdf.plugin.autotable.js' %}"></script>
+
+<link rel="stylesheet" href="{% static '/DataTables/DataTables-1.13.4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/DataTables-1.13.4/css/dataTables.bootstrap.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/dataTables.min.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/Responsive-2.4.1/css/responsive.dataTables.min.css' %}">
+
+<style>
+    table thead {background-color: #38eF7d;}
+</style>
+
+<script src="{% static '/DataTables/DataTables-1.13.4/js/jquery.dataTables.js' %}"></script>
+<script src="{% static '/DataTables/DataTables-1.13.4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static '/DataTables/dataTables.min.js' %}"></script>
+<script src="{% static '/DataTables/Responsive-2.4.1/js/dataTables.responsive.min.js' %}"></script>
+
+<link rel="stylesheet" href="{% static '/stock/informes/movdepinf.css' %}">
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static '/stock/informes/movdepinf.js' %}"></script>
+
+</head>
+<body onload="actelementos(),procesar(), cargarcombos()" >
+
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+		<a class="btn"  id="retorno" href="{% url 'menustock' %}" >retornar</a>
+		<a class="btn"  id="retfiltro" href="#"   onclick="retornlist()">retornar</a>
+		</div>
+		<div  id="titcab"  class="titcab" > LIST. DE MOV DEPOSITO  </div>
+    </div>
+        <div id="menufiltro" class="menufiltro" >
+        <div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha inicio:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechaini" name="fechaini" ><br> </div>
+        <div  class="campo1" > <label >fecha fin:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechafin" name="fechain" ><br> </div>
+		<div  class="campo1" > 	<label >dep salida:</label>   </div>
+		<div  class="campo2" > <input type="text"  class="txtfecha" id="depsalida" name="depsalida"  list="deposito_list" ><br> </div>
+		<div  class="campo1" > 	<label >dep entrada:</label>   </div>
+		<div  class="campo2" > <input type="text"  class="txtfecha" id="depentrada" name="depentrada"  list="deposito_list" ><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+
+		<div id="columna2"  class="columna2" >
+		<div  class="campo1" > <label >INFORME:</label>   </div>
+		<div  class="campo2" > </div><div  class="campo1" > <label ></label>   </div>	<div  class="campo2" >  </div>
+		<div  class="campo1" > <input type="radio" name="optinforme" value="general" checked> GENERAL </div>
+ 		<div  class="campo2" > <input type="radio" name="optinforme" value="detallado"> DETALLADO </div>
+		 <label ></label>
+		</div> <!-- COLUMNA 2 -->
+		</div> <!-- COLUMNA 0-->
+
+		<div   class="botones" >
+			<a class="boton" href="#" onclick="listadomovdep('web')"> LISTAR</a>
+		</div>
+        </div>
+
+		<div id="btnexport" style= "display: none; >
+			<div   class="botones"  >
+			<a class="boton" href="#" onclick="listadoexport('pdf')"> PDF</a>
+		    <a class="boton" href="#" onclick="listadoexport('excel')"> EXCEL</a>
+		    <a class="boton" href="#" onclick="listadoexport('csv')"> CSV</a>
+	    </div>
+
+<div   class="container"   > <div  class="row"   > <div  class="col"   >
+<table id="movdeplst"     class="table table-striped table-bordered display responsive nowrap" style="width:100%"></table>
+</div></div></div></div>
+
+</body>
+</html>
+{% endblock %}

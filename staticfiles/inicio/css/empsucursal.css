@@ -1,0 +1,119 @@
+
+.cont {
+position:relative;
+float:left;
+width:400px;
+height:100%;
+border: 1px solid #000000;
+border-color: transparent;
+
+}
+
+.empresa {
+position:relative;
+width:350px;
+height:350px;
+float:right;
+border-radius:3px;
+padding: 5px 10px 10px 20px;
+border: 1px solid #000000;
+border-color: transparent;
+
+}
+
+.titulo{
+position:relative;
+width:240px;
+height:20px;
+float:left;
+border-radius:3px;
+padding: 20px 10px 10px 10px;
+text-align:center;
+font:  26px Arial, Helvetica, sans-serif;
+border: 1px solid #000000;
+border-color: transparent;
+
+}
+.empresat,.sucursalt{
+position:relative;
+width:200px;
+height:10px;
+float:left;
+border-radius:3px;
+padding: 30px 10px;
+}
+.txtempresa,.txtsucursal{
+position:relative;
+width:250px;
+height:10px;
+float:left;
+padding: 20px 40px;
+border-radius:10px;
+
+}
+
+.msnexito{
+position:relative;
+width:100px;
+height:50px;
+float:left;
+border-radius:3px;
+color:red;
+text-align:center;
+padding:5px 20px ;
+}
+
+.btning{
+position:relative;
+width:100px;
+height:40px;
+float:left;
+border-radius:10px;
+padding: 20px 60px 30px 20px;
+font: 12px Arial, Helvetica, sans-serif;
+}
+
+
+.columna1,.columna2{
+padding:10px;
+padding-left:5px;
+float:left;
+width:350px;
+height:350px;
+border: 1px solid #000000;
+border-color: transparent;
+
+}
+
+.campo1 ,.campo2{
+padding:30px;
+position: relative;
+float:left;
+width:300px;
+height:40px;
+border: 1px solid #000000;
+border-color: transparent;
+
+}
+.campo2{padding:0px;}
+
+input  {
+font: 14px Arial, Helvetica, sans-serif;
+position: relative;
+float:left;
+width:90%;
+height:30px;
+border-radius: 8px;
+padding-left:10px;
+
+border-color: gainsboro;
+}
+input:focus {
+  background-color: #f2f2f2;;
+}
+
+@media only screen and (max-device-width : 600px)  {
+    .cont {
+      width:360px;
+    }
+   }

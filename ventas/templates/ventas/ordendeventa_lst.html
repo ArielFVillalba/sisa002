@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/ventas/ventas/ordendeventa.css' %}">
+<script src="{% static '/ventas/ventas/ordendeventa.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+	<a class="btn" href="{% url 'ordenventacab_filtro' %}" >RETORNAR</a>
+    </div>
+
+	<div  id="titcab"  class="titcab" >  ORDEN DE VENTA</div>
+    </div>
+
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  >
+    <div class ="celdalistadot" >FECHA </div>
+    <div class ="celdalistadot" >NRO ORDEN</div>
+    <div class ="celdalistadot" >PROVEEDOR </div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadot" >RUC </div>
+    <div class ="celdalistadot" >TIMBRADO</div>
+    <div class ="celdalistadot" >TIPO DOC </div>
+    </div>
+
+    </div>
+{% for ordenventacab in ordenventacab %}
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistado" > {{ ordenventacab.fecha |date:'d-m-Y'}}</div>
+    <div class ="celdalistado" > {{ ordenventacab.nroorden }}</div>
+    <div class ="celdalistado" > {{ ordenventacab.proveedor }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ ordenventacab.ruc }}</div>
+    <div class ="celdalistado" > {{ ordenventacab.timbrado }}</div>
+    <div class ="celdalistado" > {{ ordenventacab.tipodoc }}</div>
+
+   <div class ="cellistbtn" >
+       <a href="{% url 'ordenventacab_cargar' pk_token=ordenventacab.pkov %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+
+   </div>   <! columnalst2>
+   </div>   <! columnalst>
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+

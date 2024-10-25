@@ -1,0 +1,162 @@
+
+
+.cab{
+float:left;
+height:50px;
+min-width: 200px;
+border-left-radius:2px;
+border-color: transparent;
+width: 100vw;
+border-radius: 2px;
+padding: 2px 2px ;
+}
+
+.btncab {
+position:left;
+width:20%;
+min-width:120px;
+height:100%;
+float:left;
+border-radius: 2px;
+padding: 2px 2px ;
+}
+
+.titcab {
+float:left;
+padding: 10px 20px ;
+width:250px;
+height:80%;
+border-radius: 8px;
+color:black;
+font: 14px Arial, Helvetica, sans-serif;
+box-shadow: 5px 5px rgba(0,0,0.5,0.5);
+text-align: center;
+border: 0.5px solid gray;
+background-color: gray 50%; /* or background-color: grey 90%; */
+}
+.btn{
+width:100px;
+height:25px;
+border-radius:8px;
+padding:6px;
+padding-left:8px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+font: 12px Arial, Helvetica, sans-serif;
+}
+button:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+button:focus{
+color:008B8B;
+background-color:#c8c8c8;
+}
+.boton {
+font: 12px Arial, Helvetica, sans-serif;
+border: 1px solid #000000;
+display: inline-block;
+padding: 2px 5px;
+text-align: center;
+text-decoration: none;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+transition: all 0.3s ease;
+color:black;
+width:80px;
+height:25px;
+border-radius:8px;
+padding:7px;
+padding-left:8px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+background-color: #f2f2f2;
+}
+a:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+a:focus{
+color:008B8B;
+background-color:#c8c8c8;
+}
+
+
+.columna{
+float:left;
+width:90%;
+height:100%;
+}
+
+.columnalst,.columnalstt{
+float:left;
+width:100%;
+min-width:630px;
+height:35px;
+border: 1px solid yellow;
+border-color: transparent;
+
+}
+
+.columnalst1,.columnalst2,.columnalst3{
+float:left;
+width:330px;
+height:30px;
+border-color: transparent;
+border: 1px solid blue;
+border-color: transparent;
+
+}
+.columnalst2{width: 500px;}
+.celdalistado,
+.celdalistador,
+.celdalistadol,
+.celdalistadot,
+.cellistbtn
+{
+font: 14px Arial, Helvetica, sans-serif;
+position: relative;
+float:left;
+width:100px;
+height:100%;
+border-color: gainsboro;
+border: 1px solid =#5F2F3F4;
+box-shadow: 3px 3px rgba(0.1,0.1,0.1,0.1);
+border: 1px solid #000000;
+border-color: transparent;
+text-align:center;
+}
+.celdalistador{text-align:right;}
+.celdalistadol{text-align:left;}
+
+.celdalistadot{
+text-align:center;
+font-weight: bold;
+font-style: italic;
+padding:5px;
+}
+
+.btnlstm, .btnlste{
+width:80px;
+height:25px;
+border-radius:4px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+}
+.btnlste{ color: red; }
+.btnlste:hover {color:black; background-color:red; }
+.btnlste:focus {color:black; background-color:red; }
+
+.listadodet{
+float:left;
+padding: 20px 10px ;
+width:80%;
+height:200px;
+float:left;
+text-align: center;
+border: 1px solid red;
+border-color: transparent;
+
+}
+
+
+@media only screen and (max-device-width : 600px)  {
+
+}

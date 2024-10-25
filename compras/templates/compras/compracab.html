@@ -1,0 +1,107 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+{% csrf_token %}
+
+<html>
+
+<head>
+<script src="{% static '/stock/stock/articulos.js' %}"></script>
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+<script src="{% static '/compras/compras/proveedor.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/compracab.css' %}">
+<script src="{% static '/compras/compras/compracab.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+
+<body onload="actelementos(), cargarcombos(), actcompelem()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucompras' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+
+		<form id="compra_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" required  id="id_fecha" name="fecha" value={{ compracab.fecha |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >factura:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  class="txtnrofactura" required  id="id_nrofactura" name="nrofactura" value={{ compracab.nrofactura }} > <br> </div>
+		<div  class="oclultar" > <label >idcompracab:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkf"  name="idpkf" value={{ pkf }}><br> </div>
+		<div  class="oclultar" > <label >idproveedor:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" required  id="id_idproveedor"  name="idproveedor" value={{ compracab.idproveedor_id }}><br> </div>
+		<div  class="campo1" > 	<label >proveedor:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  required  id="id_proveedor" name="proveedor"  autocomplete="off" list="porv_list" onchange="codigoprov(this.value)" value="{{ compracab.proveedor }}"><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna2"  class="columna2" >
+		<div  class="campo1" > <label >ruc:</label>   </div>
+		<div  class="campo2" > <input  {% if not hab2 %}disabled{% endif %} type="text"  required  id="id_ruc" name="ruc" value={{ compracab.ruc }}><br> </div>
+		<div  class="campo1" > <label >timbrado:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  required  id="id_timbrado" name="timbrado" value={{ compracab.timbrado }}><br> </div>
+    	<div  class="campo1" > <label >tipo doc:</label>   </div>
+		<div  class="campo2" > <input class="txtfecha"  {% if not hab2 %}disabled{% endif %} type="text" required  id="id_tipodoc" name="tipodoc"  list="tipodoc_list" value={{ compracab.tipodoc }}><br> </div>
+
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna3"  class="columna3" >
+		<div  class="oclultar" > <label >direccion:</label>   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %}  type="text"  id="id_condicion" name="condicion" value={{ compracab.condicion }}><br> </div>
+		<div  class="campo1" > 	<label >fecha vto. :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fechavto" name="fechavto" value={{ compracab.fechavto |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > 	<label >fecha rece. :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecharece" name="fecharece" value={{ compracab.fecharece |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >obs:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_obs" name="obs" value={{ compracab.obs }}><br> </div>
+		<div  class="campo1" > <label >deposito:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  required  id="id_deposito" name="deposito"  list="deposito_list"  value={{ compracab.deposito }}><br> </div>
+		</div>   <!-- COLUMNA 3 -->
+		</div><!-- COLUMNA 0-->
+		</form>
+
+		<div   class="botones" >
+ 			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('compra_frm').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'compracab_cargar' pk_token=pkf|default:0   %}" >CANCELAR</a>
+			{% endif %}
+ 			{% if not hab2 %}
+			<a class="boton" href="{% url 'compracab_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'compracab_editar' pk_token=pkf|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'compracab_eliminar' pk_token=pkf|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'compracab_filtro' %}" >BUSCAR</a>
+			<a class="boton" href="{% url 'comprascuotas_cargar' pk_token=pkf|default:0   %}" >CUOTAS</a>
+			{% endif %}
+		</div>
+
+		<div id="listadodet" class="listadodet">
+			<div id="compras-list">
+			</div>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

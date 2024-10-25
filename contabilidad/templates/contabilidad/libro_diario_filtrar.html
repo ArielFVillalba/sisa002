@@ -1,0 +1,47 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/contabilidad/contabilidad/librodiario.css' %}">
+<script src="{% static '/contabilidad/contabilidad/librodiario.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actualizar()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+		<a class="btn" href="{% url 'menucontabilidad' %}" >RETORNAR</a>
+
+	</div>
+	<div  id="titcab"  class="titcab" > LIBRO DIARIO FILTRAR  </div>
+    </div>
+
+		<div id="columna0"  class="filtro_columna0" >
+		<div id="columna1"  class="filtro_columna1" >
+		<div  class="filtro_campo1" > <label >fecha inicio:</label>   </div>
+		<div  class="filtro_campo2" > <input type="date" class="txtfecha" id="id_fechaini" name="fechaini" ><br> </div>
+        <div  class="filtro_campo1" > <label >fecha fin:</label>   </div>
+		<div  class="filtro_campo2" > <input type="date" class="txtfecha" id="id_fechafin" name="fechain" ><br> </div>
+		<div  class="filtro_campo1" > <label >cuenta contable:</label >   </div>
+		<div  class="filtro_campo2" > <input type="text" id="cuenta"  name="idcuenta" ><br> </div>
+		<div  class="filtro_campo1" > </div>
+		<div  class="filtro_campo2" >
+				<div   class="botones" >
+			<a class="boton" href="#" onclick="libro_diario_filtrar_lst()">LISTAR</a>
+		</div>
+
+		</div>
+
+		</div>   <!-- COLUMNA 1 -->
+
+		</div><!-- COLUMNA 0-->
+		</form>
+
+
+
+
+</body>
+</html>
+{% endblock %}

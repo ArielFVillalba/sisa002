@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/inicio/css/menu.css' %}">
+
+</head>
+<body onload="actelementos()">
+
+
+
+ <div class="contenedor-menu-cat">
+ <ul class="menu-cat">
+  <li><a class ="atexttit" href="#"onclick="seleccab();"></a>  <ul class="menu-cat">
+  {% if  habcmp %}  <li><a class ="mnu" href="{% url 'menucaja' %}" >CAJA</a> </li>{% endif %}
+  {% if  habcmp %}  <li><a class ="mnu" href="{% url 'menucompras' %}" >COMPRA</a> </li>{% endif %}
+  {% if  habcmp %}  <li><a class ="mnu" href="{% url 'menuproveedor' %}">PROVEEDOR</a> </li>{% endif %}
+  {% if  habprov %} <li><a class ="mnu" href="{% url 'menuventas' %}" >VENTA</a> </li>{% endif %}
+  {% if  habprov %} <li><a class ="mnu" href="{% url 'menucliente' %}" >CLIENTE</a> </li>{% endif %}
+  {% if  habprov %} <li><a class ="mnu" >CONFIGURACIONES</a> </li>{% endif %}
+  {% if  habprov %} <li><a class ="mnu" href="{% url 'menustock' %}" >STOCK</a> </li>{% endif %}
+  {% if  habprov %} <li><a class ="mnu" href="{% url 'menucontabilidad' %}" >CONTABILIDAD</a> </li>{% endif %}
+
+ </li>
+ </ul> </div>
+</body>
+</html>
+{% endblock %}

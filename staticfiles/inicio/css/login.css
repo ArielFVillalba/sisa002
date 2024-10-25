@@ -1,0 +1,72 @@
+
+.contusuario {
+position:relative;
+float:left;
+width:400px;
+height:100%;
+
+}
+
+.usuario {
+position:relative;
+width:350px;
+height:350px;
+float:right;
+border-radius:3px;
+padding: 5px 10px 10px 20px;
+/*background-color:#0c5384;*/
+}
+.titulo{
+position:relative;
+width:240px;
+height:20px;
+float:left;
+border-radius:3px;
+padding: 20px 10px 10px 10px;
+text-align:center;
+font:  26px Arial, Helvetica, sans-serif;
+}
+.usernamet,.passwordt{
+position:relative;
+width:200px;
+height:10px;
+float:left;
+border-radius:3px;
+padding: 30px 10px;
+}
+.username,.usercont{
+position:relative;
+width:200px;
+height:10px;
+float:left;
+padding: 20px 40px;
+border-radius:3px;
+
+}
+
+.msnexito{
+position:relative;
+width:100px;
+height:50px;
+float:left;
+border-radius:3px;
+color:red;
+text-align:center;
+padding:5px 20px ;
+}
+
+.btningusu{
+position:relative;
+width:100px;
+height:50px;
+float:left;
+border-radius:10px;
+padding: 20px 60px 30px 20px;
+font: 12px Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (max-device-width : 600px)  {
+    .contusuario {
+      width:360px;
+    }
+   }

@@ -1,0 +1,91 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/compras/compras/proveedor.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/compracabcuotas.css' %}">
+<script src="{% static '/compras/compras/compracabcuotas.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+
+<body onload="actelementos(),actcompelemcomp(),cargarcombos()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'compracab_cargar' pk_token=pkf  %}" >retorno</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+
+		<form id="compra_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label > </label>   </div>
+		<div  class="campo2" > DATOS DE FACTURA </div>
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input class="campimp1"  {% if not hab2 %}disabled{% endif %}  type="date" class="txtfecha" id="id_fecha" name="fecha" value={{ fecha |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >factura:</label>   </div>
+		<div  class="campo2" > <input class="campimp1" {% if not hab2 %}disabled{% endif %}  type="text"  class="txtnrofactura" id="id_nrofactura" name="nrofactura" value={{ nrofactura }} > <br> </div>
+		<div  class="oclultar" > <label >idcompracab:</label >   </div>
+		<div  class="oclultar" > <input  {% if not hab2 %}disabled{% endif %}  type="text" id="id_pkf"  name="idpkf" value={{ pkf }}><br> </div>
+		<div  class="campo1" > 	<label >proveedor:</label>   </div>
+		<div  class="campo2" > <input class="campimp1" {% if not hab2 %}disabled{% endif %}  type="text"  id="id_proveedor" name="proveedor"  list="porv_list" onchange="codigoprov(this.value)" value={{ proveedor }}><br> </div>
+		<div  class="campo1" > 	<label >TOTAL:</label>   </div>
+		<div  class="campo2" > <input class="campimp1"  {% if not hab2 %}disabled{% endif %} type="text"  id="id_totalf" name="totalf" value={{ total }}><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna2"  class="columna2" >
+		<div  class="campo1" > <label ></label>   </div>
+		<div  class="campo2" > GENEAR CUOTAS </div>
+		<div  class="campo1" > <label >ENTREGA:</label>   </div>
+		<div  class="campo2" > <input  class="campimp2" type="text"  class="" id="id_entrega" name="entrega" > <br> </div>
+		<div  class="campo1" > <label >FECHA VTO :</label>   </div>
+		<div  class="campo2" > <input  type="date" class="txtfecha" id="id_fechavt" name="fechavt" ><br> </div>
+		<div  class="campo1" > <label >CANT CUOTA:</label>   </div>
+		<div  class="campo2" > <input  type="text"  class="txtfecha" id="id_cantcuota" name="cantcuota" > <br> </div>
+		<div  class="campo1" > <label >MONTO CTA:</label >   </div>
+		<div  class="campo2" > <input class="campimp2" type="text" id="id_monto"  name="monto" ><br> </div>
+		<div  class="campo1" > <label ></label >   </div>
+		<div  class="campo2" >
+		<div  id="btncab2"  class="btncab" >
+			<a class="btn"  onClick="comprascuotas_generar()" >generar</a>
+		</div>
+		</div>
+
+		</div><!-- COLUMNA 2-->
+		</div><!-- COLUMNA 0-->
+
+		</form>
+
+
+		<div id="listadodet" class="listadodet">
+			<div id="comprascuotas-list">
+			</div>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

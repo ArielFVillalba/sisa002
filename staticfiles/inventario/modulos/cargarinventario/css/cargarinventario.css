@@ -1,0 +1,177 @@
+.titprg{
+width:990px;
+height:40px;
+padding: 4px 50px;
+//background-color:#AED6F1;
+background-color:#2E86C1;
+float:left;
+border: 1px solid #000000;
+//border-color: transparent;
+}
+.titprg1,.titprg3{
+float:left;
+width:200px;
+height:30px;
+font: 20px Arial,  sans-serif ,bold;
+border: 1px solid #000000;
+border-color: transparent;
+}
+.titprg2{
+float:left;
+width:400px;
+height:30px;
+font: 20px Arial,  sans-serif ,bold;
+border: 1px solid #000000;
+border-color: transparent;
+}
+.cinvpart1,.cinvpart2,.cinvpart3 {
+width:610px;
+height:200px;
+border-radius: 10px ;
+//background-color:#AED6F1;
+//border: 1px solid :#AED6F1;
+float:left;
+border-color: transparent;
+}
+.filtcol1,.filtcol2,.filtcol3{
+float:left;
+width: 300px;
+height:100px;
+padding: 2px 2px;
+}
+.cel1,.cel2,.cel3{
+width:290px;
+height:35px;
+}
+.col1cel1,.col2cel2{
+width:140px;
+height:30px;
+float:left;
+}
+.txttitulotoma{
+width: 250px;
+height:50px;
+padding: 2px 2px;
+}
+.filtcol1btnf{
+float:left;
+width: 800px;
+height:80px;
+padding: 2px 2px;
+}
+
+.btnbuspr{
+float:center;
+width:60px;
+height:30px;
+border-radius:8px;
+
+}
+button{
+}
+button:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+.btn{
+width:120px;
+height:30px;
+border-radius:8px;
+padding-left:4px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+
+}
+.codprov,.nrotoma{
+width:100px;
+height:30px;
+}
+.cmbdep{
+width:140px;
+height:28px;
+border-radius:4px;
+}
+.btninvbuscprov{
+float:center;
+width:80px;
+height:30px;
+border-radius:8px;
+padding: 6px 6px;
+
+}
+.txtbuscprov{
+width:80px;
+height:40px;
+border-radius:8px;
+}
+.combodeposito{
+width:130px;
+height:30px;
+border-radius:6px;
+}
+.comboproveedor{
+width:260px;
+height:30px;
+border-radius:8px;
+}
+.btnbussecc{
+width:120px;
+height:30px;
+border-radius:8px;
+padding-left:4px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+}
+.combosecnsec{
+float:left;
+width:800px;
+height:140px;
+border: 1px solid #000000;
+border-color: transparent;
+}
+.grillasec{
+float:left;
+width:800px;
+height:140px;
+border: 1px solid #000000;
+}
+
+.combosecntit{
+float:left;
+width:100%;
+height:20px;
+border-radius:8px;
+}
+
+.combosecn{
+float:left;
+width:200px;
+height:30px;
+border-radius:8px;
+}
+
+.window-modal{
+    background: rgba(33, 41, 52, .99);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+}
+.window-modal .content-modal {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(33, 41, 52, .99);
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 600px;
+    min-width: 320px !important;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.3rem;
+}
+}

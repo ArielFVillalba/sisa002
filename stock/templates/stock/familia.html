@@ -1,0 +1,86 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/familia.css' %}">
+<script src="{% static '/stock/stock/familia.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="familiacab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menustock' %}" >RETORNAR</a>
+		</div>
+		<div  id="familiatitcab"  >
+			<h1 class="titcab"  id="titleElement">{{ title }}</h1>  </div>
+    </div>
+		<form id="formFamilia" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label for="lblflia1">codigo    :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_codigo" name="codigo" class="flia"  value="{{ familia.codigo }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia1">familia 1 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia1" name="familia1" class="flia"  value="{{ familia.familia1 }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia2">familia 2 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia2" name="familia2" class="flia" value="{{ familia.familia2 }}"><br> </div>
+       	<div  class="campo1" > <label for="lblflia3">familia 3 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia3" name="familia3" class="flia" value="{{ familia.familia3 }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia4">familia 4 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia4" name="familia4" class="flia" value="{{ familia.familia4 }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia5">familia 5 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia5" name="familia5" class="flia" value="{{ familia.familia5 }}"><br> </div>
+		<div  class="campo1" > <label for="lblflia6">familia 6 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia6" name="familia6" class="flia" value="{{ familia.familia6 }}"><br> </div>
+		<div  class="campo1" > 	<label for="lblflia7">familia 7 :</label>   </div>
+		<div  class="campo2" > <input {% if not var2 %}disabled{% endif %} type="text" id="id_familia7" name="familia7" class="flia" value="{{ familia.familia7 }}"><br> </div>
+		<div  class="campo1" >  </div>
+
+		</div>   <!-- COLUMNA 2-->
+		</form>
+
+
+	<div   class="botones" >
+			{% if not var1 %}
+			<a  class="boton" href="#" onclick="document.getElementById('formFamilia').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'familia_cargar' pk_token=pkf|default:0   %}" >CANCELAR</a>
+			{% endif %}
+     		{% if not var2 %}
+
+			<a class="boton" href="{% url 'familia_crear' %}" >NUEVO</a>
+			<a class="boton" href="{% url 'familia_editar' pk_token=pkf|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'familia_eliminar' pk_token=pkf|default:0   %}" >ELIMINAR</a>
+    		<a class="boton" href="{% url 'familia_listar' cadena=0 %}" >BUSCAR</a>
+
+			{% endif %}
+			</div>
+
+		</div><!-- COLUMNA 0-->
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

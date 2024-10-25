@@ -1,0 +1,1442 @@
+[
+    {
+        "Cuenta": "1.1.2.2.4",
+        "Denominación": "Deudores Morosos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.4.1.3",
+        "Denominación": "Impuesto a la Renta Ley 125/91",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.4.1.4",
+        "Denominación": "Intereses Pagados-GND",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.2.5",
+        "Denominación": "Deudores en Gestión de Cobro Judicial",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.101",
+        "Denominación": "Copaco S.A.",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.102",
+        "Denominación": "La Policlinica S.A.",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.104",
+        "Denominación": "Essap-Med.1401026018",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.106",
+        "Denominación": "Scavone Hermanos SA",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.3",
+        "Denominación": "Letras a Pagar",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.2.3",
+        "Denominación": "Honorarios por Auditoría Externa",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.3.2",
+        "Denominación": "Gastos de Insumos Informáticos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.4.1",
+        "Denominación": "Alquileres Pagados por Inmuebles",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.2.2.3",
+        "Denominación": "Clientes Varios",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.3.3",
+        "Denominación": "Anticipo Impuesto a la Renta",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.3.4",
+        "Denominación": "Retención Impuesto a la Renta",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.3.8",
+        "Denominación": "Anticipo a Proveedores M.L.",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.1.1",
+        "Denominación": "a.1) Muebles y Útiles",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.7.2",
+        "Denominación": "g.2) Mejoras en Prop. Ajena",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.6.1",
+        "Denominación": "Rep. y Mant. de Bienes de Uso",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.7.3",
+        "Denominación": "Pasajes y Viáticos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.8.2",
+        "Denominación": "Otros Impuestos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.1.1.2",
+        "Denominación": "Caja Chica",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.1.1.4",
+        "Denominación": "Caja Dólar",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.1.2.1",
+        "Denominación": "Banco Sudameris Cta Cte",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "2.1.1.2.1",
+        "Denominación": "Prestamos Bancarios",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.1.4",
+        "Denominación": "Vacaciones e Indemnizaciones",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.5.1",
+        "Denominación": "Costo de Merc. Grav.",
+        "Nivel": 4,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.5.3",
+        "Denominación": "IVA Costo",
+        "Nivel": 4,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.6.1.1",
+        "Denominación": "Resultado a la Fecha",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.2.1.1",
+        "Denominación": "Panaderia El Pan",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.2.1.2",
+        "Denominación": "Carniceria La Albirró",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.2.1.4",
+        "Denominación": "Starsoft S.R.L.",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "4.1.1.1.1",
+        "Denominación": "Ventas de Merc. Gravadas 10%",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "4.1.1.1.3",
+        "Denominación": "Ventas de Merc. Exentas",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "4.1.2.1.1",
+        "Denominación": "Descuentos Obtenidos",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "4.1.2.1.2",
+        "Denominación": "Alquileres Cobrados",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "4.1.2.1.3",
+        "Denominación": "Intereses Cobrados",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "4.1.2.1.5",
+        "Denominación": "Diferencia de Cambio",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.9.1",
+        "Denominación": "Donaciones y Contribución",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.9.2",
+        "Denominación": "Seguros",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.2.1.6",
+        "Denominación": "Clientes Varios",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.3.1.1",
+        "Denominación": "Mercaderías Gravadas 10%",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.3.1.3",
+        "Denominación": "Mercaderias Extentas",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.1.2",
+        "Denominación": "a.2) Útiles y Enseres",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.2.3",
+        "Denominación": "b.3) Equipos de Informática",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.3.1",
+        "Denominación": "c.1) Automóviles",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.3.3",
+        "Denominación": "c.3) Restantes Bienes",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.1.4.1",
+        "Denominación": "d.1) Aviones, Avionetas",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.1.7.1",
+        "Denominación": "g.1) Edificios",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.1.7.4",
+        "Denominación": "#¿NOMBRE?",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.2.1.2",
+        "Denominación": "Gastos de Proyectos de Inversión",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.2.2.2",
+        "Denominación": "Seguros a Vencer",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.2.2.3",
+        "Denominación": "Intereses y Comisiones a Vencer",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "3.3.3.1",
+        "Denominación": "Resultados Acumulados",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "2.2.1.1.1",
+        "Denominación": "Provisión para Despido",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.2.1.1.2",
+        "Denominación": "Provisión para Diferencia de Cambios",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "3.3.3.2",
+        "Denominación": "Resultado del Ejercicio",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.1.1.4",
+        "Denominación": "Seguros sobre Mercaderias",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.1.1.6",
+        "Denominación": "Utensilios para Farmacia",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.1.1",
+        "Denominación": "Sueldos y Jornales",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.1.3",
+        "Denominación": "Aguinaldos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.1.6",
+        "Denominación": "Remuneración Personal Superior",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.2.2",
+        "Denominación": "Honorarios por Asesoramiento Impositivo",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.3.1",
+        "Denominación": "Impresos y Útiles",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.4.2",
+        "Denominación": "Otros",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.5.1",
+        "Denominación": "Luz, Agua y Teléfono",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.6.2",
+        "Denominación": "Rep. y Mant. de Edificios",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.7.1",
+        "Denominación": "Combustibles y Lubricantes",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.9.4",
+        "Denominación": "Diferencia de Cálculo del IVA",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.4.1.1",
+        "Denominación": "Recargos y Multas",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.4.1.2",
+        "Denominación": "Reserva Legal",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.4.2.1",
+        "Denominación": "Amortiz. B.P. Gtos Deducibles",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.4.3.1",
+        "Denominación": "Depreciación del Ejercicio",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.2.2",
+        "Denominación": "FinImport S.R.L.",
+        "Nivel": 6,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "V"
+    },
+    {
+        "Cuenta": "1.1.2.2.1.3",
+        "Denominación": "Plásticos del Paraguay",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.2.1.5",
+        "Denominación": "Diario 5 Días",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.2.2.1",
+        "Denominación": "La Internacional S.A. USD",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.2.2.2",
+        "Denominación": "El Proveedor Abastecimientos S.A. USD",
+        "Nivel": 6,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.2.3",
+        "Denominación": "Cuentas a Cobrar",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.103",
+        "Denominación": "Ande",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.105",
+        "Denominación": "Marsal S.A.C.I.",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.1.2.1",
+        "Denominación": "El Importador S.A.",
+        "Nivel": 6,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "V"
+    },
+    {
+        "Cuenta": "2.1.1.1.2.3",
+        "Denominación": "Proveedores Externos Varios",
+        "Nivel": 6,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "V"
+    },
+    {
+        "Cuenta": "2.1.1.2.2",
+        "Denominación": "Sobregiros en Cta. Cte.",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.3.1",
+        "Denominación": "IVA Débito 5%",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.3.2",
+        "Denominación": "IVA Débito 10%",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.3.3",
+        "Denominación": "Direccion Gral. de Recaudación",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.3.4",
+        "Denominación": "Instituto de Prevision Social",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.3.5",
+        "Denominación": "Retención del IVA",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.3.6",
+        "Denominación": "Retención de Imp. a la Renta",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.4.3",
+        "Denominación": "Cuentas a Pagar",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.2.2.1.1",
+        "Denominación": "Utilidades Diferidas s/ Ventas a Plazo",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "2.2.2.1.3",
+        "Denominación": "Rentas Anticipados",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "3.3.1.2",
+        "Denominación": "Capital Suscripto",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "3.3.2.1",
+        "Denominación": "Reserva de Revalúo",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "3.3.2.3",
+        "Denominación": "Reserva Facultativa",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "4.1.2.1.4",
+        "Denominación": "Ingresos Varios",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.1.1.2",
+        "Denominación": "Publicidad y Propaganda",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.7.2",
+        "Denominación": "Rep. y Mant. de Rodados",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.8.1",
+        "Denominación": "Patentes e Impuestos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.9.3",
+        "Denominación": "Gastos Generales",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.4.1.11",
+        "Denominación": "Gastos No Deducibles",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.4.3.2",
+        "Denominación": "Depreciación del Ejercicio GND",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.5.2",
+        "Denominación": "Costo de Merc. Exentas",
+        "Nivel": 4,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.2.2.1.2",
+        "Denominación": "Intereses Cobrado por Adelantado",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "3.3.1.1",
+        "Denominación": "Capital Integrado",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "2.1.1.4.1",
+        "Denominación": "Sueldo y Remuneraciones a Pagar",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "2.1.1.4.2",
+        "Denominación": "Honorarios a Pagar",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "3.3.2.2",
+        "Denominación": "Reserva Legal",
+        "Nivel": 4,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "4.1.1.1.2",
+        "Denominación": "Ventas de Merc.Gravadas 5%",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.1.1.1",
+        "Denominación": "Caja",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.1.2.2",
+        "Denominación": "Banco Sudameris Cta Cte. USD",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.3.1",
+        "Denominación": "Anticipo al Personal",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.3.2",
+        "Denominación": "Anticipo Gastos a Rendir",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.3.5",
+        "Denominación": "IVA Crédito 5%",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.3.6",
+        "Denominación": "IVA Crédito 10 %",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "SI",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.3.7",
+        "Denominación": "Retención IVA",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.2.3.9",
+        "Denominación": "Anticipo a Proveedores M.E.",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "DOLAR",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.2.4.1",
+        "Denominación": "Pago No Aplicado-IRE",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.1.3.1.2",
+        "Denominación": "Mercaderías Gravadas 5%",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.1.3",
+        "Denominación": "#¿NOMBRE?",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.2.1",
+        "Denominación": "b.1) Maquinarias",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.2.2",
+        "Denominación": "b.2) Herramientas y Equipos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.1.2.4",
+        "Denominación": "#¿NOMBRE?",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.3.2",
+        "Denominación": "c.2) Motocicletas",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.1.3.4",
+        "Denominación": "#¿NOMBRE?",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.4.2",
+        "Denominación": "d.2) Instalaciones de Tierra",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.1.4.3",
+        "Denominación": "#¿NOMBRE?",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.1.7.3",
+        "Denominación": "g.3) Terreno",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.2.2.1.1",
+        "Denominación": "Gastos de Constitución y Organización",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.2.1.3",
+        "Denominación": "Gastos de Desarrollo e Inversión",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.2.1.4",
+        "Denominación": "#¿NOMBRE?",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "1.2.2.2.1",
+        "Denominación": "Alquiler a Vencer",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "2.1.1.4.4",
+        "Denominación": "Acreedores Varios",
+        "Nivel": 5,
+        "Naturaleza": "ACREEDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.1.1.1",
+        "Denominación": "Comisiones Pagadas",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.1.1.3",
+        "Denominación": "Fletes y/o Movilidad Pagadas",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.1.1.5",
+        "Denominación": "Descuentos Concedidos",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.1.1.7",
+        "Denominación": "Diferencia de Cambio",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.2.1.1",
+        "Denominación": "Interés, Comisión Gtos. Bancarios",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.2.1.2",
+        "Denominación": "Otros Intereses",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.1.2",
+        "Denominación": "Bonificación Familiar",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": null
+    },
+    {
+        "Cuenta": "5.1.3.1.5",
+        "Denominación": "Aporte Patronal IPS",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "5.1.3.2.1",
+        "Denominación": "Honorarios por Servicios Contables",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    },
+    {
+        "Cuenta": "1.1.1.1.3",
+        "Denominación": "Recaudaciones a Depositar",
+        "Nivel": 5,
+        "Naturaleza": "DEUDOR",
+        "Asentable": "SI",
+        "Centro Costo": "NO",
+        "Moneda": "Local",
+        "Tipo_cambio": "C"
+    }
+]

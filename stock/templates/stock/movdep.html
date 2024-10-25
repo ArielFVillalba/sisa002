@@ -1,0 +1,87 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+
+<script src="{% static '/stock/stock/articulos.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/movdep.css' %}">
+<script src="{% static '/stock/stock/movdep.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos(), cargarcombos(), actcompelem()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menustock' %}" >RETORNAR</a>
+		</div>
+	<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+		<form id="movdep_frm" action="{{ sidr }}" method="POST">
+
+        {% csrf_token %}
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value="{{ movdepcab.fecha |date:'Y-m-d'}}"><br> </div>
+		<div  class="campo1" > <label >nro orden:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  class="nromov" id="id_nromov" name="nromov" value="{{ movdepcab.nromov }}" > <br> </div>
+		<div  class="oclultar" > <label >idcompracab:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkmd"  name="pkmb" value="{{ pkmb }}"><br> </div>
+	    <div  class="campo1" > <label >salida:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} class="salida" type="text"  id="id_depsalida" name="depsalida"  list="deposito_list" value={{ movdepcab.depsalida }}><br> </div>
+		<div  class="campo1" > <label >entrada:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %}  class="entrada" type="text"  id="id_depentrada" name="depentrada"  list="deposito_list" value={{ movdepcab.depentrada}}><br> </div>
+		<div  class="campo1" > <label >obs:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} class="obs" type="text"  id="id_obs" name="obs" value="{{ movdepcab.obs }}"><br> </div>
+		</div>  <!-- COLUMNA 1 -->
+		</div>  <!-- COLUMNA 0-->
+		</form>
+
+		<div   class="botones" >
+ 			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('movdep_frm').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'movdepcab_cargar' pk_token=pkmb|default:0 %}" >CANCELAR</a>
+			{% endif %}
+ 			{% if not hab2 %}
+			<a class="boton" href="{% url 'movdepcab_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'movdepcab_editar' pk_token=pkmb|default:0 %}" >EDITAR</a>
+			<a class="boton" href="{% url 'movdepcab_eliminar' pk_token=pkmb|default:0 %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'movdepcab_filtro' %}" >BUSCAR</a>
+			{% endif %}
+		</div>
+
+
+		<div id="listadodet" class="listadodet">
+			<div id="movdep-list">	</div>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base/base2.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/stock/stock/inventario.css' %}">
+<script src="{% static '/stock/stock/inventario.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="inventariocab"  class="inventariocab" >
+		<div  id="btncab"  class="inventariobtncab" >
+			<a class="btn" href="{% url 'menustock' %}" >RETORNAR</a>
+		</div>
+		<div  id="inventariotitcab"  >
+			<h1 class="inventariotitcab"  id="titleElement">{{ title }}</h1>  </div>
+    </div>
+		<form id="forminventariologin" action="" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label for="lblflia1">usuario:</label>   </div>
+		<div  class="campo2" > <input type="text" id="id_username" value ="luis" name="username"  class="nrotoma" ><br> </div>
+		<div  class="campo1" > <label >contraseña:</label>   </div>
+		<div  class="campo2" > <input type="text" contraseña id="id_password" value ="luis" name="password"  ><br> </div>
+		<div  class="campo1" ></div> <div  class="campo2" ></div>
+		<div  class="botones" >
+         <button class="boton" type="submit">INGRESAR</button>
+
+
+		</div> 		</div>
+		</div>
+
+
+
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+  </script>
+{% endblock %}

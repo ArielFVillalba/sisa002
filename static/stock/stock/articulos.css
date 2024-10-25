@@ -1,0 +1,303 @@
+
+
+.cab{
+float:left;
+height:60px;
+min-width: 200px;
+border-left-radius:2px;
+border-color: transparent;
+width: 100vw;
+border-radius: 2px;
+padding: 2px 2px ;
+}
+
+.btncab {
+position:left;
+width:20%;
+min-width:120px;
+height:100%;
+float:left;
+border-radius: 2px;
+padding: 2px 2px ;
+}
+
+.titcab {
+float: left;
+text-decoration: none;  /* Quita el subrayado */
+display: flex;            /* Activa flexbox */
+justify-content: center;   /* Centra el texto horizontalmente */
+align-items: center;       /* Centra el texto verticalmente */
+width:250px;
+height:80%;
+border-radius: 8px;
+color:black;
+font: 14px Arial, Helvetica, sans-serif;
+box-shadow: 5px 5px rgba(0,0,0.5,0.5);
+text-align: center;
+border: 0.5px solid gray;
+background-color: gray 50%; /* or background-color: grey 90%; */
+}
+
+
+.buscar_art{
+float:left;
+width:100%;
+height:80%;
+padding: 2px 2px ;
+border-radius:10px;
+}
+.celdatxtbuscar{
+float:left;
+width:70%;
+max-width:500px;
+height:100%;
+border-radius:4px;
+}
+
+
+.btn{
+float: left;
+text-decoration: none;  /* Quita el subrayado */
+display: flex;            /* Activa flexbox */
+justify-content: center;   /* Centra el texto horizontalmente */
+align-items: center;       /* Centra el texto verticalmente */
+width:80px;
+height:30px;
+color:black;
+border: 0.2px solid gray;
+border-radius:8px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+font: 12px Arial, Helvetica, sans-serif;
+}
+
+a:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+a:focus{
+color:008B8B;
+background-color:#c8c8c8;
+}
+button:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+button:focus{
+color:008B8B;
+background-color:#c8c8c8;
+}
+.boton {
+float: left;
+text-decoration: none;  /* Quita el subrayado */
+display: flex;            /* Activa flexbox */
+justify-content: center;   /* Centra el texto horizontalmente */
+align-items: center;       /* Centra el texto verticalmente */
+width:80px;
+height:30px;
+color:black;
+border-radius: 6px;
+font: 12px Arial, Helvetica, sans-serif;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+background-color: #f2f2f2;
+padding: 2px 2px;
+transition: all 0.3s ease;
+margin-right: 8px;
+margin-top: 8px;
+}
+
+.formulario{
+position: relative;
+float:left;
+width:420px;
+height:450%;
+border: 2px solid #000000;
+border-color: transparent;
+}
+
+.columna0{
+float:left;
+width: vw;
+height:100%;
+}
+
+.columna1,.columna2{
+padding:20px;
+padding-left:5px;
+float:left;
+width:450px;
+height:300px;
+border-radius: 8px;
+border: 0.5px solid gainsboro;
+
+}
+
+.campo1 ,.campo2{
+padding:2px;
+position: relative;
+float:left;
+width:100px;
+height:30px;
+}
+.colimag{
+padding:20px;
+float:left;
+width:200px;
+height:200px;
+border: 1px solid #000000;
+border-color: gainsboro;
+border-color: transparent;
+}
+.imag{
+width:100%;
+height:90%
+}
+.boton-elegir {
+background-color: #007bff;
+color: #fff;
+padding:20px,10px,10px;
+padding: 1px 1px;
+border: none;
+cursor: pointer;
+background-color:grey;
+width:100px;
+height:15%;
+border-radius:6px;
+box-shadow: 1px 1px rgba(0,0,0,0.5);
+
+}
+
+.oclultar{
+ display: none;
+}
+.campo2{ width:300px; }
+
+input  {
+font: 14px Arial, Helvetica, sans-serif;
+position: relative;
+float:left;
+width:50%;
+height:30px;
+border-radius: 4px;
+border-color: gainsboro;
+}
+input:focus {
+  background-color: #f2f2f2;;
+}
+
+.txtnum{ text-align: right;}
+.txtdesc{ width:330px;}
+.flia{ width:280px;}
+
+label {  font: 18px Arial, Helvetica, sans-serif;}
+
+.botones{
+position: relative;
+float:left;
+width:100%;
+height:50px;
+padding-left:40px;
+}
+.columna{
+float:left;
+width:100%;
+height:100%;
+}
+
+.columnalst,.columnalstt{
+float:left;
+width:95%;
+min-width:630px;
+height:40px;
+border-color: transparent;
+}
+.columnalst1,.columnalst2,.columnalst3{
+float:left;
+width: 500px;
+height:35px;
+}
+.columnalst1{width: 500px; }
+.columnalst2{width: 600px; }
+.columnalst3{width: 100px; }
+
+.celdalistado,
+.celdalistadol,
+.celdalistadof,
+.celdalistadot,
+.celdalistadolt,
+.celdalistadoft{
+font: 14px Arial, Helvetica, sans-serif;
+position: relative;
+float:left;
+width:100px;
+height:80%;
+border-color: gainsboro;
+border: 1px solid =#5F2F3F4;
+//background-color:#F2F3F4;
+box-shadow: 3px 3px rgba(0.1,0.1,0.1,0.1);
+padding:5px 5px;
+
+}
+.celdalistado,.celdalistadot{ width:100px;}
+.celdalistadol,.celdalistadolt{ width:250px;}
+.celdalistadof,.celdalistadoft{ width:150px;}
+.celdalistadot,.celdalistadolt,.celdalistadoft{
+text-align:center;
+font-weight: bold;
+font-style: italic;
+padding:5px;
+}
+
+
+
+.btnlstm, .btnlste{
+float:left;
+text-decoration: none;  /* Quita el subrayado */
+display: flex;            /* Activa flexbox */
+justify-content: center;   /* Centra el texto horizontalmente */
+align-items: center;       /* Centra el texto verticalmente */
+font: 10px Arial, Helvetica, sans-serif;
+width:60px;
+height:30px;
+border-radius:6px;
+border-color: gainsboro;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+}
+.btnlste{ color: red; }
+.btnlste:hover {color:width; background-color:red; }
+.btnlste:focus {color:width; background-color:red; }
+
+.msnsuccess{
+  float:left;
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 90vw;
+  height:50vw;
+}
+
+@media only screen and (max-device-width : 600px)  {
+    .panellogo {
+    width: 100vw;
+    }
+    .formulario{
+    width:100%;
+    color:red;
+    }
+    .formulario{
+    width:100%;
+    }
+    .columnalst{height:100px;}
+    .columnalstt{height:80px;}
+
+    .msnsuccess{
+     width: 50%;
+     height:90%;
+    }
+
+}
+
+#filechooser2 {
+    display: none; /* Oculta el input original */
+}

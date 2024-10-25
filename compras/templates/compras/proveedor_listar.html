@@ -1,0 +1,71 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/compras/compras/proveedor.css' %}">
+<script src="{% static '/compras/compras/proveedor.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+
+	<div  id="btncab"  class="btncab" >
+		<a class="btn" href="{% url 'proveedor_cargar' pk_token=0  %}" >RETORNAR</a>
+    </div>
+	<div  id="titcab"  class="titcab" >  LISTADO DE PROVEEDOR  </div>
+    </div>
+
+<div  class="cab" >
+	<div  class="celdatxtbuscar" > <input type="text" id="idbuscar" name="idbuscar" class="buscar_prov" value="{{ cadena }}"> <br> </div>
+    <div  class="tncab" > <button class="btn" onClick="buscarproveedor()" >  BUSCAR  </button> </div>
+ </div>
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistadolt" >NOMBRE </div>
+    <div class ="celdalistadot" >RUC</div>
+    <div class ="celdalistadot" >CEDULA </div>
+    <div class ="celdalistadot" >TELEFONO</div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadolt" >DIRECCION </div>
+    <div class ="celdalistadolt" >MAIL</div>
+    </div>
+    </div>
+{% for proveedor in proveedor %}
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistadol" > {{ proveedor.nombre }}</div>
+    <div class ="celdalistado" > {{ proveedor.ruc }}</div>
+    <div class ="celdalistado" > {{ proveedor.cedula }}</div>
+    <div class ="celdalistado" > {{ proveedor.telefono }}</div>
+
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistadol" > {{ proveedor.direccion }}</div>
+    <div class ="celdalistadol" > {{ proveedor.mail }}</div>
+    <div class ="celdalistado" >
+        <a href="{% url 'proveedor_cargar' pk_token=proveedor.pkpr|default:0  %}">
+        <button class="btnlstm">editar</button>
+        </a>
+        </div>
+   </div>
+   </div>
+
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+

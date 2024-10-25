@@ -1,0 +1,68 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+
+
+
+<link rel="stylesheet" href="{% static '/caja/caja/cajaconfiguracion.css' %}">
+<script src="{% static '/caja/caja/cajaconfiguracion.js' %}"></script>
+
+</head>
+
+<body onload="actelementos(), funcompcab()" >
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+	<a class="btn" href="{% url 'seriedet_cargar' pk_token=0 %}" >retornar</a>
+
+    </div>
+	<div  id="titcab"  class="titcab" >  LISTADO DE CONFIGURACION  </div>
+    </div>
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  >
+    <div class ="celdalistadot" >SERIE </div>
+    <div class ="celdalistadot" >DOCUMENTO</div>
+    <div class ="celdalistadot" >DEPOSITO </div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadot" >INICO </div>
+    <div class ="celdalistadot" >FIN</div>
+    <div class ="celdalistadot" >CORRELATIVA </div>
+    </div>
+
+    </div>
+{% for seriedet in seriedet %}
+    <div class="columnalst"  >
+    <div class="columnalst1" >
+    <div class ="celdalistado" > {{ seriedet.serie}}</div>
+    <div class ="celdalistado" > {{ seriedet.documento }}</div>
+    <div class ="celdalistado" > {{ seriedet.deposito }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ seriedet.inicio }}</div>
+    <div class ="celdalistado" > {{ seriedet.fin }}</div>
+    <div class ="celdalistado" > {{ seriedet.correlativa }}</div>
+
+   <div class ="cellistbtn" >
+       <a href="{% url 'seriedet_cargar' pk_token=seriedet.pksd %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+
+   </div>   <! columnalst2>
+   </div>   <! columnalst>
+{% endfor %}
+</div> <! columna >
+
+</body>
+</html>
+{% endblock %}
+

@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/compras/compras/menucompras.css' %}">
+<script src="{% static '/compras/compras/menucompras.js' %}"></script>
+ <script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos()">
+ <div class="contenedor-menu-cat">
+ <ul class="menu-cat">
+
+ <li><a class ="atexttit" href="#"onclick="seleccab();">COMPRA</a>  <ul class="menu-cat">
+ <!--<li><a href="{% url 'proveedor_cargar' pk_token=0 %}" >proveedor</a> </li>-->
+ <!--<li><a href="{% url 'presupuestocompcab_cargar' pk_token=0 %}" >presupuesto de compra</a> </li>-->
+ <li><a href="{% url 'pedidocompcab_cargar' pk_token=0 %}" >PEDIDO DE COMPRAS</a> </li>
+ <li><a href="{% url 'ordencompcab_cargar' pk_token=0 %}" >ORDEN DE COMPRAS</a> </li>
+ <li><a href="{% url 'compracab_cargar' pk_token=0 %}" >COMPRAS</a> </li>
+ <li><a href="{% url 'notacreditocompcab_cargar' pk_token=0 %}" >NOTA DE CREDITO</a> </li>
+ <!--<li><a href="{% url 'notadebitocompcab_cargar' pk_token=0 %}" >Nota debito de compra</a> </li>-->
+ </ul>
+ </li>
+
+ <li><a class ="atexttit"  href="#"onclick="seleccab();"> LISTADOS </a> <ul class="menu-cat">
+ <li><a href="{% url 'pedidodecompracab_inf' %}" >INF PEDIDO COMPRAS</a> </li>
+ <li><a href="{% url 'ordendecompracab_inf' %}" >INFORME ORDEN COMPRA</a> </li>
+ <li><a href="{% url 'compracabinf' %}" > INFORME COMPRA</a> </li>
+ <li><a href="{% url 'notacreddecompracab_inf' %}" > INFORME NOTA CREDITO</a> </li>
+
+ <!--<li><a href="{% url 'presupdecompracab_inf' %}" > inf presupuesto de compra</a> </li>
+ <li><a href="{% url 'notadebdecompracab_inf' %}" > inf nota debito de compra</a> </li>-->
+ </ul></li>
+
+ </ul>
+ </div>
+</body>
+</html>
+{% endblock %}
+
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

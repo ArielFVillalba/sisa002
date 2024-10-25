@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/stock/stock/articulos.js' %}"></script>
+
+<script src="{% static '/ventas/ventas/cliente.js' %}"></script>
+<link rel="stylesheet" href="{% static '/ventas/ventas/ordendeventa.css' %}">
+<script src="{% static '/ventas/ventas/ordendeventa.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun(),cargarcombos()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+		<a class="btn" href="{% url 'ordenventacab_cargar' pk_token=0 %}" >RETORNAR</a>
+
+	</div>
+	<div  id="titcab"  class="titcab" > FILTRAR ORDEN DE VENTA  </div>
+    </div>
+
+
+
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha inicio:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechaini" name="fechaini" ><br> </div>
+        <div  class="campo1" > <label >fecha fin:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechafin" name="fechain" ><br> </div>
+		<div  class="campo1" > <label >idcliente:</label >   </div>
+		<div  class="campo2" > <input type="text" id="id_idcliente"  name="idcliente" ><br> </div>
+		<div  class="campo1" > 	<label >cliente:</label>   </div>
+		<div  class="campo2" > <input type="text"  id="id_cliente" name="cliente"  list="cli_list" onchange="codigocli(this.value)"><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna2"  class="columna2" >
+        <div  class="campo1" > <label >tipodoc:</label>   </div>
+		<div  class="campo2" > <input class="txtfecha" type="text"  id="id_tipodoc" name="tipodoc"  list="tipodoc_list" ><br> </div>
+		<div  class="campo1" > <label ></label>   </div>
+		<div  class="campo2" > <label ></label>   </div>
+
+		</div>   <!-- COLUMNA 2 -->
+
+
+		</div><!-- COLUMNA 0-->
+		</form>
+
+		<div   class="botones" >
+			<a class="boton" href="#" onclick="filtrarordendeventa()">LISTAR</a>
+		</div>
+
+
+
+</body>
+</html>
+{% endblock %}

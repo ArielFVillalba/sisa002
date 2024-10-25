@@ -1,0 +1,61 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/caja/caja/menucaja.css' %}">
+<script src="{% static '/caja/caja/menucaja.js' %}"></script>
+ <script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos() ">
+ <div class="contenedor-menu-cat">
+ <ul class="menu-cat">
+
+ <li><a class ="atexttit" href="#"onclick="seleccab();">MENU CAJA</a>  <ul class="menu-cat">
+ <li><a href="{% url 'cajaapertura_cargar' %}" >APERTURA DE CAJA</a> </li>
+ <li><a href="{% url 'cajaapcierre_cargar'  pk_token=0  %}" >CIERRE DE CAJA</a> </li>
+
+ <li><a href="{% url 'ventacaja_cargar' pk_token=0 %}" >FACTURACION</a> </li>
+ <li><a href="{% url 'cajaformadepagov' %}" >FORMA DE PAGO</a> </li>
+ <li><a href="{% url 'seriedet_cargar' pk_token=0 %}" >CONFIGURACION</a> </li>
+
+ <li><a href="{% url 'cajatipomovi' %}" >TIPO MOVIMIENTOS</a> </li>
+
+ </ul>
+ </li>
+
+ <li><a class ="atexttit"  href="#"onclick="seleccab();"> LISTADOS </a> <ul class="menu-cat">
+ <li><a href="{% url 'cajacierreinf' %}" > INFORME CAJA </a> </li>
+ <!--<li><a href="{% url 'notadebdecompracab_inf' %}" > inf nota debito de compra</a> </li>-->
+ </ul></li>
+
+ </ul>
+ </div>
+</body>
+</html>
+{% endblock %}
+
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

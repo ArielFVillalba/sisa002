@@ -1,0 +1,87 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+<head>
+
+
+<script src="{% static '/js/jsPDF-AutoTable-master/libs/libs/jspdf.umd.js' %}"></script>
+<script src="{% static '/js/jsPDF-AutoTable-master/dist/jspdf.plugin.autotable.js' %}"></script>
+
+
+<link rel="stylesheet" href="{% static '/DataTables/DataTables-1.13.4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/DataTables-1.13.4/css/dataTables.bootstrap.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/dataTables.min.css' %}">
+<link rel="stylesheet" href="{% static '/DataTables/Responsive-2.4.1/css/responsive.dataTables.min.css' %}">
+
+<style>
+    table thead {background-color: #38eF7d;}
+</style>
+
+<script src="{% static '/DataTables/DataTables-1.13.4/js/jquery.dataTables.js' %}"></script>
+<script src="{% static '/DataTables/DataTables-1.13.4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static '/DataTables/dataTables.min.js' %}"></script>
+<script src="{% static '/DataTables/Responsive-2.4.1/js/dataTables.responsive.min.js' %}"></script>
+
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<script src="{% static '/ventas/ventas/cliente.js' %}"></script>
+<link rel="stylesheet" href="{% static '/ventas/ventas/ordendeventa.css' %}">
+<script src="{% static '/ventas/ventas/ordendeventa.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static '/ventas/informes/ordenventalst.js' %}"></script>
+
+</head>
+<body onload="actelementos(), cargarcombos(), actcompelem(),procesar()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+		<a class="btn"  id="retorno" href="{% url 'menuventas' %}" >retornar</a>
+		<a class="btn"  id="retfiltro" href="#" onclick="retornlist()">retornar</a>
+		</div>
+		<div  id="titcab"  class="titcab" > LIST. ORDEN DE VENTA  </div>
+    </div>
+        <div id="menufiltro" class="menufiltro" >
+        <div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columna1" >
+		<div  class="campo1" > <label >fecha inicio:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechaini" name="fechaini" ><br> </div>
+        <div  class="campo1" > <label >fecha fin:</label>   </div>
+		<div  class="campo2" > <input type="date" class="txtfecha" id="id_fechafin" name="fechain" ><br> </div>
+		<div  class="oclultar" > <label >idproveedor:</label >   </div>
+		<div  class="oclultar"  > <input type="text" id="id_idcliente"  name="idcliente" ><br> </div>
+		<div  class="campo1" > 	<label >proveedor:</label>   </div>
+		<div  class="campo2" > <input type="text"  id="cliente" name="cliente"  list="cli_list" onchange="codigocli(this.value)"><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna2"  class="columna2" >
+        <div  class="campo1" > <label >tipodoc:</label>   </div>
+		<div  class="campo2" > <input class="txtfecha" type="text"  id="id_tipodoc" name="tipodoc"  list="tipodoc_list" ><br> </div>
+		<div  class="campo1" >    </div>
+		<div  class="campo2" >    </div>
+
+		<div  class="campo1" > <label >INFORME:</label>   </div>
+		<div  class="campo2" >  </div>
+		<div  class="campo1" ><input type="radio" name="optinforme" value="general" checked> GENERAL </div>
+ 		<div  class="campo2" ><input type="radio" name="optinforme" value="detallado"> DETALLADO </div>
+		 <label ></label>
+		</div> <!-- COLUMNA 2 -->
+		</div> <!-- COLUMNA 0-->
+
+		<div   class="botones" >
+			<a class="boton" href="#" onclick="listadoordenventa('web')"> LISTAR</a>
+		</div>
+        </div>
+
+		<div id="btnexport" >
+			<div   class="botones" >
+			<a class="boton" href="#" onclick="listadoordexport('pdf')"> PDF</a>
+		    <a class="boton" href="#" onclick="listadoordexport('excel')"> EXCEL</a>
+		    <a class="boton" href="#" onclick="listadoordexport('csv')"> CSV</a>
+	    </div>
+
+<div  class="container"   > <div  class="row"   > <div  class="col"   >
+<table id="ordenventalst" class="table table-striped table-bordered display responsive nowrap" style="width:100%"></table>
+</div></div></div></div>
+
+</body>
+</html>
+{% endblock %}

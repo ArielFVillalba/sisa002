@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static '/inicio/css/pagconfirmacion.css' %}">
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación</title>
+</head>
+<body>
+<div class="contenedor" >
+    <div class="contconf" >
+
+    <div class="titulo">{{ titulo }}</div>
+    <div class="mensaje" >{{ instance }}</div>
+    <div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="grpbotones" >
+        <a> <input  class="boton" type="submit" name="action" value="CONFIRMAR"> </a>
+        <a> <input class="boton" type="submit" name="action" value="CANCELAR"> </a>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

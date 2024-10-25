@@ -1,0 +1,113 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+
+
+<script src="{% static '/stock/stock/articulos.js' %}"></script>
+<script src="{% static '/stock/stock/deposito.js' %}"></script>
+<script src="{% static '/ventas/ventas/cliente.js' %}"></script>
+
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static '/ventas/ventas/ventacab.css' %}">
+<script src="{% static '/ventas/ventas/ventacab.js' %}"></script>
+</head>
+
+<body onload="actelementos(), funcompcab()" >
+	<div id="cab"  class="cab" >
+		<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menuventas' %}" >RETORNAR</a>
+		</div>
+		<div  id="titcab"  class="titcab" >  {{ title }}  </div>
+    </div>
+
+		<form id="venta_frm" action="{{ sidr }}" method="POST">
+        {% csrf_token %}
+		<div id="columna0"  class="columna0" >
+		<div id="columna1"  class="columnax" >
+		<div  class="campo1" > <label >fecha :</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecha" name="fecha" value='{{ ventacab.fecha |date:'Y-m-d'}}'><br> </div>
+		<div  class="campo1" > <label >factura:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  class="txtnrofactura" id="id_nrofactura" name="nrofactura" value='{{ ventacab.nrofactura }}' > <br> </div>
+		<div  class="oclultar" > <label >idventacab:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_pkf"  name="pkf" value={{ pkf }}><br> </div>
+		<div  class="oclultar" > <label >idcliente:</label >   </div>
+		<div  class="oclultar" > <input {% if not hab2 %}disabled{% endif %} type="text" id="id_idcliente"  name="idcliente" value={{ ventacab.idcliente }}><br> </div>
+		<div  class="campo1" > 	<label >cliente:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_cliente" name="cliente"  list="cli_list" onchange="codigocli(this.value)" value='{{ ventacab.cliente }}'><br> </div>
+		<div  class="campo1" > <label >ruc:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_ruc" name="ruc" value='{{ ventacab.ruc }}'><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna2"  class="columna2" >
+
+		<div  class="campo1" > <label >timbrado:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_timbrado" name="timbrado" value='{{ ventacab.timbrado }}'><br> </div>
+    	<div  class="campo1" > <label >tipodoc:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} class="txtfecha" type="text"  id="id_tipodoc" name="tipodoc"  list="tipodoc_list" value='{{ ventacab.tipodoc }}'><br> </div>
+		</div>   <!-- COLUMNA 1 -->
+		<div id="columna3"  class="columna2" >
+		<div  class="oclultar" > <label >direccion:</label>   </div>
+		<div  class="oclultar" > <input  {% if not hab2 %}disabled{% endif %} type="text"  id="id_condicion" name="condicion" value='{{ ventacab.condicion }}'><br> </div>
+		<div  class="campo1" > 	<label >fechavto :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %}  type="date" class="txtfecha" id="id_fechavto" name="fechavto" value={{ ventacab.fechavto |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > 	<label >fecharece :</label>   </div>
+		<div  class="campo2" > 	<input {% if not hab2 %}disabled{% endif %} type="date" class="txtfecha" id="id_fecharece" name="fecharece" value={{ ventacab.fecharece |date:'Y-m-d'}}><br> </div>
+		<div  class="campo1" > <label >obs:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_obs" name="obs" value={{ ventacab.obs }}><br> </div>
+	    <div  class="campo1" > <label >deposito:</label>   </div>
+		<div  class="campo2" > <input {% if not hab2 %}disabled{% endif %} type="text"  id="id_deposito" name="deposito"  list="deposito_list"  value={{ ventacab.deposito }}><br> </div>
+		</div>   <!-- COLUMNA 2-->
+		</div>   <!-- COLUMNA 3 -->
+
+		</form>
+
+
+		<div class="botones" >
+ 			{% if not hab1 %}
+			<a class="boton" href="#" onclick="document.getElementById('venta_frm').submit();">GUARDAR</a>
+		    <a class="boton" href="{% url 'ventacab_cargar' pk_token=pk_token|default:0   %}" >CANCELAR</a>
+			{% endif %}
+ 			{% if not hab2 %}
+			<a class="boton" href="{% url 'ventacab_crear' %}" >NUEVO</a>
+		    <a class="boton" href="{% url 'ventacab_editar' pk_token=pk_token|default:0   %}" >EDITAR</a>
+			<a class="boton" href="{% url 'ventacab_eliminar' pk_token=pk_token|default:0   %}" >ELIMINAR</a>
+			<a class="boton" href="{% url 'ventacab_filtro' %}" >BUSCAR</a>
+			<a class="boton" href="{% url 'ventascuotas_cargar' pk_token=pkf|default:0   %}" >cuotas</a>
+
+			{% endif %}
+		</div>
+
+
+		<div id="listadodet" class="listadodet">
+			<ul id="venta-list">
+
+			</ul>
+		</div>
+
+</body>
+</html>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+.titprg{
+width:990px;
+height:40px;
+padding: 4px 50px;
+//background-color:#AED6F1;
+background-color:#2E86C1;
+float:left;
+border: 1px solid #000000;
+border-color: transparent;
+}
+.titprg1,.titprg3{
+float:left;
+width:200px;
+height:30px;
+border: 1px solid #000000;
+border-color: transparent;
+//color:#fafbfd ;
+font: 20px Arial,  sans-serif ,bold;
+//border: 1px solid #000000;
+}
+.titprg2{
+float:left;
+width:400px;
+height:30px;
+border: 1px solid #000000;
+border-color: transparent;
+//color:#fafbfd ;
+font: 20px Arial,  sans-serif ,bold;
+//border: 1px solid #000000;
+}
+.contprict{
+float:left;
+width:990px;
+height:140px;
+//background-color:#0c5384;
+border: 1px solid #000000;
+border-color: transparent;
+}
+.grpopt,.grpnbtn{
+width:280px;
+height:120px;
+border-radius:8px;
+border: 1px solid #000000;
+border-color: transparent;
+}
+.radiot{
+background-color:#2E86C1;
+}
+.btn{
+float:center;
+width:130px;
+height:30px;
+border-radius:8px;
+padding: 6px 6px;
+box-shadow: 3px 3px rgba(0,0,0,0.5);
+}
+button:hover{
+color:008B8B;
+background-color:#c8c8c8;
+}
+
+.compradt,.fechat,.codclit,.clientet,.col1cel1,.btnvertoma {
+float:left;
+width:120px;
+height:20px;
+border-radius:2px;
+padding: 6px 6px;
+//color:#fafbfd ;
+}
+.nrotoma,.fecha,.codcli,.cliente{
+float:left;
+width:150px;
+height:30px;
+border-radius:2px;
+padding:2px 6px;
+}
+.comprad,.codcli,.cliente{
+color:#0a0a0a;
+}
+.cliente{
+width:300px;
+height:25px;
+padding-top:6px;
+}
+.btnbcodcsfsli{
+float:left;
+width:250px;
+}
+.grp1,.grp2,.grp3{
+padding-left:10px;
+width:320px;
+height:150px;
+float:left;
+border: 1px solid red;
+border-color: transparent;
+}
+.grp1_1,.grp1_2{
+padding-left:10px;
+width:300px;
+height:60px;
+float:left;
+border: 1px solid red;
+border-color: transparent;
+}
+.grp2_1{
+padding-left:10px;
+width:300px;
+height:80px;
+float:left;
+border: 1px solid red;
+border-color: transparent;
+}
+.grp2_1{
+padding-left:10px;
+width:300px;
+height:90px;
+float:left;
+border: 1px solid red;
+border-color: transparent;
+}
+.grp2_2{
+padding-left:10px;
+width:300px;
+height:30px;
+float:left;
+border: 1px solid red;
+border-color: transparent;
+}
+
+.btn{
+float:center;
+width:130px;
+height:30px;
+border-radius:8px;
+padding: 6px 6px;
+}
+

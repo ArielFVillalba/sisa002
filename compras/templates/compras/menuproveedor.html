@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static '/compras/compras/menucompras.css' %}">
+<script src="{% static '/compras/compras/menucompras.js' %}"></script>
+ <script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actelementos()">
+
+
+
+ <div class="contenedor-menu-cat">
+ <ul class="menu-cat">
+
+ <li><a class ="atexttit" href="#"onclick="seleccab();">PROVEEDOR</a>  <ul class="menu-cat">
+ <li><a href="{% url 'proveedor_cargar' pk_token=0 %}" >PROVEEDOR</a> </li>
+ <li><a href="{% url 'pagoprovcab_cargar' pk_token=0 %}" >PAGO PROVEEDOR</a> </li>
+
+ </ul>
+ </li>
+
+
+ </ul>
+ </div>
+</body>
+</html>
+{% endblock %}
+
+
+{% block scripts %}
+  <script>
+    {% if messages %}
+      {% for message in messages %}
+         Swal.fire({  title: '',
+          			  text:  '{{ message }}',
+  					  icon: '{{ message.tags }} ',
+  		 customClass: {
+    	 container: 'msnsuccess',
+
+  }
+});
+
+      {% endfor %}
+    {% endif %}
+
+
+    </script>
+
+{% endblock %}

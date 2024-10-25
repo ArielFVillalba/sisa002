@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<html>
+
+<head>
+<script src="{% static '/inicio/js/principal.js' %}"></script>
+<link rel="stylesheet" href="{% static '/ventas/ventas/presupdeventa.css' %}">
+<link rel="stylesheet" href="{% static '/ventas/ventas/notacreditodeventa.css' %}">
+<script src="{% static '/ventas/ventas/notacreditodeventa.js' %}"></script>
+</head>
+<body onload="actelementos(), procesarfun()">
+	<div id="cab"  class="cab" >
+    <div  id="btncab"  class="btncab" >
+        <a class="btn" href="{% url 'notacreditoventacab_filtro' %}" >RETORNAR</a>
+    </div>
+
+	<div  id="titcab"  class="titcab" >  NOTA CREDITO DE VENTA</div>
+    </div>
+
+
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div class="columnalst1"  >
+    <div class ="celdalistadot" >FECHA </div>
+    <div class ="celdalistadot" >NRO NOTA CRED</div>
+    <div class ="celdalistadot" >CLIENTE </div>
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistadot" >RUC </div>
+    <div class ="celdalistadot" >TIMBRADO</div>
+    <div class ="celdalistadot" >TIPO DOC </div>
+    </div>
+
+    </div>
+{% for notacreditoventacab in notacreditoventacab %}
+    <div class="columnalst"  >
+    <div class="columnalst1"  class="columnalst1" >
+    <div class ="celdalistado" > {{ notacreditoventacab.fecha |date:'d-m-Y'}}</div>
+    <div class ="celdalistado" > {{ notacreditoventacab.nronota }}</div>
+    <div class ="celdalistado" > {{ notacreditoventacab.cliente }}</div>
+    </div>
+
+    <div class="columnalst2"  >
+    <div class ="celdalistado" > {{ notacreditoventacab.ruc }}</div>
+    <div class ="celdalistado" > {{ notacreditoventacab.timbrado }}</div>
+    <div class ="celdalistado" > {{ notacreditoventacab.tipodoc }}</div>
+
+   <div class ="cellistbtn" >
+       <a href="{% url 'notacreditoventacab_cargar' pk_token=notacreditoventacab.pknc %}">
+        <button class="btnlstm">cargar</button>
+        </a>
+   </div>
+
+   </div>   <! columnalst2>
+   </div>   <! columnalst>
+{% endfor %}
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+

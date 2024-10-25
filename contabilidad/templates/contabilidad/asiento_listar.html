@@ -1,0 +1,73 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static '/contabilidad/contabilidad/asiento.css' %}">
+<script src="{% static '/contabilidad/contabilidad/asiento.js' %}"></script>
+<script src="{% static '/js/sweetalert2.all.min.js' %}"></script>
+
+</head>
+<body onload="actualizar(),actelementos()">
+	<div id="cab"  class="cab" >
+	<div  id="btncab"  class="btncab" >
+			<a class="btn" href="{% url 'menucontabilidad' %}" >RETORNAR</a>
+    </div>
+	<div  id="titcab"  class="titcab" >  LISTADO DE ASIENTO  </div>
+    </div>
+<div>
+<div  class="cab" >
+	<div  class="celdatxtbuscar" > <input type="text" id="idbuscar" name="idbuscar" class="buscar_asiento" value="{{ cadena }}"> <br> </div>
+    <div  class="tncab" > <button class="btn" onClick="buscarasiento()" >  BUSCAR  </button> </div>
+ </div>
+
+    <div class="columna" id="columna" >
+    <div class="columnalst" id="columnalst" >
+
+    <div  class="columnalst1" >
+    <div class ="celdalistc" >FECHA </div>
+    <div class ="celdalistc"  >N°ASIENTO </div>
+    <div class ="celdalistl" >DESC.</div>
+
+    </div>
+
+    <div class="columnalst2">
+    <div class ="celdalistc" >DEBE </div>
+    <div class ="celdalistc" >HABER </div>
+
+    </div>
+    </div>
+			<div class="espacio011" ></div>
+
+   {% for asiento in asiento %}
+    <div class="columnalst"  >
+    <div class="columnalst1" >
+    <div class ="celdalistc" style="text-align: center; " >
+        {{ asiento.fecha |date:'d-m-Y'}}</div>
+    <div class ="celdalistc" style="text-align: center;" > {{ asiento.nroasiento }}</div>
+    <div class ="celdalistl" > {{ asiento.descripcion }}</div>
+
+    </div>
+    <div class="columnalst2"  >
+    <div class ="celdalistc" style="text-align: right;"> {{ asiento.debe }}</div>
+    <div class ="celdalistc" style="text-align: right;"> {{ asiento.haber }}</div>
+    <div class ="celdalistb" style="text-align: right;">
+        <a href="{% url 'asiento_cargar' pk_token=asiento.pkas  %}">
+        <button class="btnlstm">editar</button>
+        </a>
+    </div>
+   </div>
+   </div>
+			<div class="espacio011" ></div>
+
+{% endfor %}
+
+</div> <! columna >
+
+{% endblock %}
+</body>
+</html>
+
